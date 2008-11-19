@@ -1527,14 +1527,21 @@ SWIG_Ruby_SetModule(swig_module_info *pointer)
 #define SWIGTYPE_p_LPXKKT swig_types[0]
 #define SWIGTYPE_p_char swig_types[1]
 #define SWIGTYPE_p_double swig_types[2]
-#define SWIGTYPE_p_f_p_void_p_q_const__char__int swig_types[3]
-#define SWIGTYPE_p_glp_bfcp swig_types[4]
-#define SWIGTYPE_p_glp_prob swig_types[5]
-#define SWIGTYPE_p_glp_smcp swig_types[6]
-#define SWIGTYPE_p_glp_ulong swig_types[7]
-#define SWIGTYPE_p_int swig_types[8]
-static swig_type_info *swig_types[10];
-static swig_module_info swig_module = {swig_types, 9, 0, 0, 0, 0};
+#define SWIGTYPE_p_f_p_glp_tree_p_void__void swig_types[3]
+#define SWIGTYPE_p_f_p_void_p_q_const__char__int swig_types[4]
+#define SWIGTYPE_p_glp_attr swig_types[5]
+#define SWIGTYPE_p_glp_bfcp swig_types[6]
+#define SWIGTYPE_p_glp_iocp swig_types[7]
+#define SWIGTYPE_p_glp_long swig_types[8]
+#define SWIGTYPE_p_glp_prob swig_types[9]
+#define SWIGTYPE_p_glp_smcp swig_types[10]
+#define SWIGTYPE_p_glp_tran swig_types[11]
+#define SWIGTYPE_p_glp_tree swig_types[12]
+#define SWIGTYPE_p_int swig_types[13]
+#define SWIGTYPE_p_p_char swig_types[14]
+#define SWIGTYPE_p_void swig_types[15]
+static swig_type_info *swig_types[17];
+static swig_module_info swig_module = {swig_types, 16, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -1730,36 +1737,6 @@ SWIG_AsVal_double (VALUE obj, double *val)
     }
   }
   return SWIG_TypeError;
-}
-
-
-SWIGINTERN int
-SWIG_AsVal_unsigned_SS_int (VALUE obj, unsigned int *val)
-{
-  unsigned long v;
-  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v > UINT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = (unsigned int)(v);
-    }
-  }  
-  return res;
-}
-
-
-SWIGINTERNINLINE VALUE
-SWIG_From_unsigned_SS_long  (unsigned long value)
-{
-  return ULONG2NUM(value); 
-}
-
-
-SWIGINTERNINLINE VALUE
-SWIG_From_unsigned_SS_int  (unsigned int value)
-{    
-  return SWIG_From_unsigned_SS_long  (value);
 }
 
 
@@ -2071,7 +2048,7 @@ fail:
 swig_class cGlp_prob;
 
 SWIGINTERN VALUE
-_wrap_glp_prob__prob_set(int argc, VALUE *argv, VALUE self) {
+_wrap_glp_prob__opaque_prob_set(int argc, VALUE *argv, VALUE self) {
   glp_prob *arg1 = (glp_prob *) 0 ;
   double arg2 ;
   void *argp1 = 0 ;
@@ -2084,15 +2061,15 @@ _wrap_glp_prob__prob_set(int argc, VALUE *argv, VALUE self) {
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_prob" "', argument " "1"" of type '" "glp_prob *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_opaque_prob" "', argument " "1"" of type '" "glp_prob *""'"); 
   }
   arg1 = (glp_prob *)(argp1);
   ecode2 = SWIG_AsVal_double(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "_prob" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "_opaque_prob" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
-  if (arg1) (arg1)->_prob = arg2;
+  if (arg1) (arg1)->_opaque_prob = arg2;
   
   return Qnil;
 fail:
@@ -2101,7 +2078,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_glp_prob__prob_get(int argc, VALUE *argv, VALUE self) {
+_wrap_glp_prob__opaque_prob_get(int argc, VALUE *argv, VALUE self) {
   glp_prob *arg1 = (glp_prob *) 0 ;
   double result;
   void *argp1 = 0 ;
@@ -2113,10 +2090,10 @@ _wrap_glp_prob__prob_get(int argc, VALUE *argv, VALUE self) {
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_prob" "', argument " "1"" of type '" "glp_prob *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_opaque_prob" "', argument " "1"" of type '" "glp_prob *""'"); 
   }
   arg1 = (glp_prob *)(argp1);
-  result = (double) ((arg1)->_prob);
+  result = (double) ((arg1)->_opaque_prob);
   vresult = SWIG_From_double((double)(result));
   return vresult;
 fail:
@@ -2161,30 +2138,30 @@ free_glp_prob(glp_prob *arg1) {
     free((char *) arg1);
 }
 
-swig_class cGlp_ulong;
+swig_class cGlp_long;
 
 SWIGINTERN VALUE
-_wrap_glp_ulong_lo_set(int argc, VALUE *argv, VALUE self) {
-  glp_ulong *arg1 = (glp_ulong *) 0 ;
-  unsigned int arg2 ;
+_wrap_glp_long_lo_set(int argc, VALUE *argv, VALUE self) {
+  glp_long *arg1 = (glp_long *) 0 ;
+  int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned int val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_ulong, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_long, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "lo" "', argument " "1"" of type '" "glp_ulong *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "lo" "', argument " "1"" of type '" "glp_long *""'"); 
   }
-  arg1 = (glp_ulong *)(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
+  arg1 = (glp_long *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lo" "', argument " "2"" of type '" "unsigned int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lo" "', argument " "2"" of type '" "int""'");
   } 
-  arg2 = (unsigned int)(val2);
+  arg2 = (int)(val2);
   if (arg1) (arg1)->lo = arg2;
   
   return Qnil;
@@ -2194,9 +2171,9 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_glp_ulong_lo_get(int argc, VALUE *argv, VALUE self) {
-  glp_ulong *arg1 = (glp_ulong *) 0 ;
-  unsigned int result;
+_wrap_glp_long_lo_get(int argc, VALUE *argv, VALUE self) {
+  glp_long *arg1 = (glp_long *) 0 ;
+  int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   VALUE vresult = Qnil;
@@ -2204,13 +2181,13 @@ _wrap_glp_ulong_lo_get(int argc, VALUE *argv, VALUE self) {
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_ulong, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_long, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "lo" "', argument " "1"" of type '" "glp_ulong *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "lo" "', argument " "1"" of type '" "glp_long *""'"); 
   }
-  arg1 = (glp_ulong *)(argp1);
-  result = (unsigned int) ((arg1)->lo);
-  vresult = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  arg1 = (glp_long *)(argp1);
+  result = (int) ((arg1)->lo);
+  vresult = SWIG_From_int((int)(result));
   return vresult;
 fail:
   return Qnil;
@@ -2218,27 +2195,27 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_glp_ulong_hi_set(int argc, VALUE *argv, VALUE self) {
-  glp_ulong *arg1 = (glp_ulong *) 0 ;
-  unsigned int arg2 ;
+_wrap_glp_long_hi_set(int argc, VALUE *argv, VALUE self) {
+  glp_long *arg1 = (glp_long *) 0 ;
+  int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned int val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_ulong, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_long, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "hi" "', argument " "1"" of type '" "glp_ulong *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "hi" "', argument " "1"" of type '" "glp_long *""'"); 
   }
-  arg1 = (glp_ulong *)(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
+  arg1 = (glp_long *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "hi" "', argument " "2"" of type '" "unsigned int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "hi" "', argument " "2"" of type '" "int""'");
   } 
-  arg2 = (unsigned int)(val2);
+  arg2 = (int)(val2);
   if (arg1) (arg1)->hi = arg2;
   
   return Qnil;
@@ -2248,9 +2225,9 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_glp_ulong_hi_get(int argc, VALUE *argv, VALUE self) {
-  glp_ulong *arg1 = (glp_ulong *) 0 ;
-  unsigned int result;
+_wrap_glp_long_hi_get(int argc, VALUE *argv, VALUE self) {
+  glp_long *arg1 = (glp_long *) 0 ;
+  int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   VALUE vresult = Qnil;
@@ -2258,13 +2235,13 @@ _wrap_glp_ulong_hi_get(int argc, VALUE *argv, VALUE self) {
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_ulong, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_long, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "hi" "', argument " "1"" of type '" "glp_ulong *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "hi" "', argument " "1"" of type '" "glp_long *""'"); 
   }
-  arg1 = (glp_ulong *)(argp1);
-  result = (unsigned int) ((arg1)->hi);
-  vresult = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  arg1 = (glp_long *)(argp1);
+  result = (int) ((arg1)->hi);
+  vresult = SWIG_From_int((int)(result));
   return vresult;
 fail:
   return Qnil;
@@ -2273,14 +2250,14 @@ fail:
 
 #ifdef HAVE_RB_DEFINE_ALLOC_FUNC
 SWIGINTERN VALUE
-_wrap_glp_ulong_allocate(VALUE self) {
+_wrap_glp_long_allocate(VALUE self) {
 #else
   SWIGINTERN VALUE
-  _wrap_glp_ulong_allocate(int argc, VALUE *argv, VALUE self) {
+  _wrap_glp_long_allocate(int argc, VALUE *argv, VALUE self) {
 #endif
     
     
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_glp_ulong);
+    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_glp_long);
 #ifndef HAVE_RB_DEFINE_ALLOC_FUNC
     rb_obj_call_init(vresult, argc, argv);
 #endif
@@ -2289,13 +2266,13 @@ _wrap_glp_ulong_allocate(VALUE self) {
   
 
 SWIGINTERN VALUE
-_wrap_new_glp_ulong(int argc, VALUE *argv, VALUE self) {
-  glp_ulong *result = 0 ;
+_wrap_new_glp_long(int argc, VALUE *argv, VALUE self) {
+  glp_long *result = 0 ;
   
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
-  result = (glp_ulong *)(glp_ulong *) calloc(1, sizeof(glp_ulong));DATA_PTR(self) = result;
+  result = (glp_long *)(glp_long *) calloc(1, sizeof(glp_long));DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -2304,7 +2281,7 @@ fail:
 
 
 SWIGINTERN void
-free_glp_ulong(glp_ulong *arg1) {
+free_glp_long(glp_long *arg1) {
     free((char *) arg1);
 }
 
@@ -3910,6 +3887,1637 @@ free_glp_smcp(glp_smcp *arg1) {
     free((char *) arg1);
 }
 
+swig_class cGlp_tree;
+
+SWIGINTERN VALUE
+_wrap_glp_tree__opaque_tree_set(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_opaque_tree" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_double(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "_opaque_tree" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = (double)(val2);
+  if (arg1) (arg1)->_opaque_tree = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_tree__opaque_tree_get(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  double result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_opaque_tree" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  result = (double) ((arg1)->_opaque_tree);
+  vresult = SWIG_From_double((double)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+SWIGINTERN VALUE
+_wrap_glp_tree_allocate(VALUE self) {
+#else
+  SWIGINTERN VALUE
+  _wrap_glp_tree_allocate(int argc, VALUE *argv, VALUE self) {
+#endif
+    
+    
+    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_glp_tree);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+    rb_obj_call_init(vresult, argc, argv);
+#endif
+    return vresult;
+  }
+  
+
+SWIGINTERN VALUE
+_wrap_new_glp_tree(int argc, VALUE *argv, VALUE self) {
+  glp_tree *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  result = (glp_tree *)(glp_tree *) calloc(1, sizeof(glp_tree));DATA_PTR(self) = result;
+  
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_glp_tree(glp_tree *arg1) {
+    free((char *) arg1);
+}
+
+swig_class cGlp_iocp;
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_msg_lev_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "msg_lev" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "msg_lev" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->msg_lev = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_msg_lev_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "msg_lev" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->msg_lev);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_br_tech_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "br_tech" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "br_tech" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->br_tech = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_br_tech_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "br_tech" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->br_tech);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_bt_tech_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "bt_tech" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "bt_tech" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->bt_tech = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_bt_tech_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "bt_tech" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->bt_tech);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_tol_int_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "tol_int" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_double(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "tol_int" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = (double)(val2);
+  if (arg1) (arg1)->tol_int = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_tol_int_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  double result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "tol_int" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (double) ((arg1)->tol_int);
+  vresult = SWIG_From_double((double)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_tol_obj_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "tol_obj" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_double(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "tol_obj" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = (double)(val2);
+  if (arg1) (arg1)->tol_obj = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_tol_obj_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  double result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "tol_obj" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (double) ((arg1)->tol_obj);
+  vresult = SWIG_From_double((double)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_tm_lim_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "tm_lim" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "tm_lim" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->tm_lim = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_tm_lim_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "tm_lim" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->tm_lim);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_out_frq_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "out_frq" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "out_frq" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->out_frq = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_out_frq_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "out_frq" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->out_frq);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_out_dly_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "out_dly" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "out_dly" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->out_dly = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_out_dly_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "out_dly" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->out_dly);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_cb_func_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  void (*arg2)(glp_tree *,void *) = (void (*)(glp_tree *,void *)) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "cb_func" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(argv[0], (void**)(&arg2), SWIGTYPE_p_f_p_glp_tree_p_void__void);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "cb_func" "', argument " "2"" of type '" "void (*)(glp_tree *,void *)""'"); 
+    }
+  }
+  if (arg1) (arg1)->cb_func = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_cb_func_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  void (*result)(glp_tree *,void *) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "cb_func" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (void (*)(glp_tree *,void *)) ((arg1)->cb_func);
+  vresult = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_glp_tree_p_void__void);
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_cb_info_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  void *arg2 = (void *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "cb_info" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[0],SWIG_as_voidptrptr(&arg2), 0, SWIG_POINTER_DISOWN);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "cb_info" "', argument " "2"" of type '" "void *""'"); 
+  }
+  if (arg1) (arg1)->cb_info = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_cb_info_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  void *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "cb_info" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (void *) ((arg1)->cb_info);
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_cb_size_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "cb_size" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "cb_size" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->cb_size = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_cb_size_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "cb_size" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->cb_size);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_pp_tech_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "pp_tech" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "pp_tech" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->pp_tech = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_pp_tech_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "pp_tech" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->pp_tech);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_mip_gap_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "mip_gap" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_double(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "mip_gap" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = (double)(val2);
+  if (arg1) (arg1)->mip_gap = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_mip_gap_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  double result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "mip_gap" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (double) ((arg1)->mip_gap);
+  vresult = SWIG_From_double((double)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_mir_cuts_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "mir_cuts" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "mir_cuts" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->mir_cuts = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_mir_cuts_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "mir_cuts" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->mir_cuts);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_gmi_cuts_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "gmi_cuts" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "gmi_cuts" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->gmi_cuts = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_gmi_cuts_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "gmi_cuts" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->gmi_cuts);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_cov_cuts_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "cov_cuts" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "cov_cuts" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->cov_cuts = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_cov_cuts_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "cov_cuts" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->cov_cuts);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_clq_cuts_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "clq_cuts" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "clq_cuts" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->clq_cuts = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_clq_cuts_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "clq_cuts" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->clq_cuts);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_presolve_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "presolve" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "presolve" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->presolve = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_presolve_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "presolve" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->presolve);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_binarize_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "binarize" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "binarize" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->binarize = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_binarize_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "binarize" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (int) ((arg1)->binarize);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_foo_bar_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  double *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "foo_bar" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "foo_bar" "', argument " "2"" of type '" "double [30]""'"); 
+  } 
+  arg2 = (double *)(argp2);
+  {
+    if (arg2) {
+      size_t ii = 0;
+      for (; ii < (size_t)30; ++ii) arg1->foo_bar[ii] = arg2[ii];
+    } else {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in variable '""foo_bar""' of type '""double [30]""'");
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_foo_bar_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  double *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "foo_bar" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (double *)(double *) ((arg1)->foo_bar);
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_fn_sol_set(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  char *arg2 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "fn_sol" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[0], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "fn_sol" "', argument " "2"" of type '" "char *""'");
+  }
+  arg2 = (char *)(buf2);
+  if (arg1->fn_sol) free((char*)arg1->fn_sol);
+  if (arg2) {
+    size_t size = strlen((const char *)(arg2)) + 1;
+    arg1->fn_sol = (char *)(char *)memcpy((char *)malloc((size)*sizeof(char)), (const char *)(arg2), sizeof(char)*(size));
+  } else {
+    arg1->fn_sol = 0;
+  }
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_iocp_fn_sol_get(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  char *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "fn_sol" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  result = (char *) ((arg1)->fn_sol);
+  vresult = SWIG_FromCharPtr((const char *)result);
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+SWIGINTERN VALUE
+_wrap_glp_iocp_allocate(VALUE self) {
+#else
+  SWIGINTERN VALUE
+  _wrap_glp_iocp_allocate(int argc, VALUE *argv, VALUE self) {
+#endif
+    
+    
+    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_glp_iocp);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+    rb_obj_call_init(vresult, argc, argv);
+#endif
+    return vresult;
+  }
+  
+
+SWIGINTERN VALUE
+_wrap_new_glp_iocp(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  result = (glp_iocp *)(glp_iocp *) calloc(1, sizeof(glp_iocp));DATA_PTR(self) = result;
+  
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_glp_iocp(glp_iocp *arg1) {
+    free((char *) arg1);
+}
+
+swig_class cGlp_attr;
+
+SWIGINTERN VALUE
+_wrap_glp_attr_level_set(int argc, VALUE *argv, VALUE self) {
+  glp_attr *arg1 = (glp_attr *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_attr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "level" "', argument " "1"" of type '" "glp_attr *""'"); 
+  }
+  arg1 = (glp_attr *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "level" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->level = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_attr_level_get(int argc, VALUE *argv, VALUE self) {
+  glp_attr *arg1 = (glp_attr *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_attr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "level" "', argument " "1"" of type '" "glp_attr *""'"); 
+  }
+  arg1 = (glp_attr *)(argp1);
+  result = (int) ((arg1)->level);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_attr_origin_set(int argc, VALUE *argv, VALUE self) {
+  glp_attr *arg1 = (glp_attr *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_attr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "origin" "', argument " "1"" of type '" "glp_attr *""'"); 
+  }
+  arg1 = (glp_attr *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "origin" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->origin = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_attr_origin_get(int argc, VALUE *argv, VALUE self) {
+  glp_attr *arg1 = (glp_attr *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_attr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "origin" "', argument " "1"" of type '" "glp_attr *""'"); 
+  }
+  arg1 = (glp_attr *)(argp1);
+  result = (int) ((arg1)->origin);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_attr_klass_set(int argc, VALUE *argv, VALUE self) {
+  glp_attr *arg1 = (glp_attr *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_attr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "klass" "', argument " "1"" of type '" "glp_attr *""'"); 
+  }
+  arg1 = (glp_attr *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "klass" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->klass = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_attr_klass_get(int argc, VALUE *argv, VALUE self) {
+  glp_attr *arg1 = (glp_attr *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_attr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "klass" "', argument " "1"" of type '" "glp_attr *""'"); 
+  }
+  arg1 = (glp_attr *)(argp1);
+  result = (int) ((arg1)->klass);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_attr_foo_bar_set(int argc, VALUE *argv, VALUE self) {
+  glp_attr *arg1 = (glp_attr *) 0 ;
+  double *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_attr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "foo_bar" "', argument " "1"" of type '" "glp_attr *""'"); 
+  }
+  arg1 = (glp_attr *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "foo_bar" "', argument " "2"" of type '" "double [7]""'"); 
+  } 
+  arg2 = (double *)(argp2);
+  {
+    if (arg2) {
+      size_t ii = 0;
+      for (; ii < (size_t)7; ++ii) arg1->foo_bar[ii] = arg2[ii];
+    } else {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in variable '""foo_bar""' of type '""double [7]""'");
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_attr_foo_bar_get(int argc, VALUE *argv, VALUE self) {
+  glp_attr *arg1 = (glp_attr *) 0 ;
+  double *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_attr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "foo_bar" "', argument " "1"" of type '" "glp_attr *""'"); 
+  }
+  arg1 = (glp_attr *)(argp1);
+  result = (double *)(double *) ((arg1)->foo_bar);
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+SWIGINTERN VALUE
+_wrap_glp_attr_allocate(VALUE self) {
+#else
+  SWIGINTERN VALUE
+  _wrap_glp_attr_allocate(int argc, VALUE *argv, VALUE self) {
+#endif
+    
+    
+    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_glp_attr);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+    rb_obj_call_init(vresult, argc, argv);
+#endif
+    return vresult;
+  }
+  
+
+SWIGINTERN VALUE
+_wrap_new_glp_attr(int argc, VALUE *argv, VALUE self) {
+  glp_attr *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  result = (glp_attr *)(glp_attr *) calloc(1, sizeof(glp_attr));DATA_PTR(self) = result;
+  
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_glp_attr(glp_attr *arg1) {
+    free((char *) arg1);
+}
+
+swig_class cGlp_tran;
+
+SWIGINTERN VALUE
+_wrap_glp_tran__opaque_tran_set(int argc, VALUE *argv, VALUE self) {
+  glp_tran *arg1 = (glp_tran *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_tran, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_opaque_tran" "', argument " "1"" of type '" "glp_tran *""'"); 
+  }
+  arg1 = (glp_tran *)(argp1);
+  ecode2 = SWIG_AsVal_double(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "_opaque_tran" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = (double)(val2);
+  if (arg1) (arg1)->_opaque_tran = arg2;
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_tran__opaque_tran_get(int argc, VALUE *argv, VALUE self) {
+  glp_tran *arg1 = (glp_tran *) 0 ;
+  double result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_glp_tran, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_opaque_tran" "', argument " "1"" of type '" "glp_tran *""'"); 
+  }
+  arg1 = (glp_tran *)(argp1);
+  result = (double) ((arg1)->_opaque_tran);
+  vresult = SWIG_From_double((double)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+SWIGINTERN VALUE
+_wrap_glp_tran_allocate(VALUE self) {
+#else
+  SWIGINTERN VALUE
+  _wrap_glp_tran_allocate(int argc, VALUE *argv, VALUE self) {
+#endif
+    
+    
+    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_glp_tran);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+    rb_obj_call_init(vresult, argc, argv);
+#endif
+    return vresult;
+  }
+  
+
+SWIGINTERN VALUE
+_wrap_new_glp_tran(int argc, VALUE *argv, VALUE self) {
+  glp_tran *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  result = (glp_tran *)(glp_tran *) calloc(1, sizeof(glp_tran));DATA_PTR(self) = result;
+  
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_glp_tran(glp_tran *arg1) {
+    free((char *) arg1);
+}
+
 SWIGINTERN VALUE
 _wrap_glp_create_prob(int argc, VALUE *argv, VALUE self) {
   glp_prob *result = 0 ;
@@ -4533,6 +6141,64 @@ _wrap_glp_del_cols(int argc, VALUE *argv, VALUE self) {
   } 
   arg3 = (int *)(argp3);
   glp_del_cols(arg1,arg2,(int const (*))arg3);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_copy_prob(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  glp_prob *arg2 = (glp_prob *) 0 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_copy_prob" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_copy_prob" "', argument " "2"" of type '" "glp_prob *""'"); 
+  }
+  arg2 = (glp_prob *)(argp2);
+  ecode3 = SWIG_AsVal_int(argv[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "glp_copy_prob" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  glp_copy_prob(arg1,arg2,arg3);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_erase_prob(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_erase_prob" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  glp_erase_prob(arg1);
   return Qnil;
 fail:
   return Qnil;
@@ -5339,6 +7005,35 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_glp_scale_prob(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_scale_prob" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_scale_prob" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  glp_scale_prob(arg1,arg2);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_glp_unscale_prob(int argc, VALUE *argv, VALUE self) {
   glp_prob *arg1 = (glp_prob *) 0 ;
   void *argp1 = 0 ;
@@ -5434,6 +7129,77 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_glp_std_basis(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_std_basis" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  glp_std_basis(arg1);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_adv_basis(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_adv_basis" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_adv_basis" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  glp_adv_basis(arg1,arg2);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_cpx_basis(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_cpx_basis" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  glp_cpx_basis(arg1);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_glp_simplex(int argc, VALUE *argv, VALUE self) {
   glp_prob *arg1 = (glp_prob *) 0 ;
   glp_smcp *arg2 = (glp_smcp *) 0 ;
@@ -5466,6 +7232,38 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_glp_exact(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  glp_smcp *arg2 = (glp_smcp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_exact" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_glp_smcp, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_exact" "', argument " "2"" of type '" "glp_smcp const *""'"); 
+  }
+  arg2 = (glp_smcp *)(argp2);
+  result = (int)glp_exact(arg1,(glp_smcp const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_glp_init_smcp(int argc, VALUE *argv, VALUE self) {
   glp_smcp *arg1 = (glp_smcp *) 0 ;
   void *argp1 = 0 ;
@@ -5481,70 +7279,6 @@ _wrap_glp_init_smcp(int argc, VALUE *argv, VALUE self) {
   arg1 = (glp_smcp *)(argp1);
   glp_init_smcp(arg1);
   return Qnil;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_glp_get_row_stat(int argc, VALUE *argv, VALUE self) {
-  glp_prob *arg1 = (glp_prob *) 0 ;
-  int arg2 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  VALUE vresult = Qnil;
-  
-  if ((argc < 2) || (argc > 2)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_get_row_stat" "', argument " "1"" of type '" "glp_prob *""'"); 
-  }
-  arg1 = (glp_prob *)(argp1);
-  ecode2 = SWIG_AsVal_int(argv[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_get_row_stat" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = (int)(val2);
-  result = (int)glp_get_row_stat(arg1,arg2);
-  vresult = SWIG_From_int((int)(result));
-  return vresult;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_glp_get_col_stat(int argc, VALUE *argv, VALUE self) {
-  glp_prob *arg1 = (glp_prob *) 0 ;
-  int arg2 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  VALUE vresult = Qnil;
-  
-  if ((argc < 2) || (argc > 2)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_get_col_stat" "', argument " "1"" of type '" "glp_prob *""'"); 
-  }
-  arg1 = (glp_prob *)(argp1);
-  ecode2 = SWIG_AsVal_int(argv[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_get_col_stat" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = (int)(val2);
-  result = (int)glp_get_col_stat(arg1,arg2);
-  vresult = SWIG_From_int((int)(result));
-  return vresult;
 fail:
   return Qnil;
 }
@@ -5647,6 +7381,38 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_glp_get_row_stat(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  int arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_get_row_stat" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_get_row_stat" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (int)glp_get_row_stat(arg1,arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_glp_get_row_prim(int argc, VALUE *argv, VALUE self) {
   glp_prob *arg1 = (glp_prob *) 0 ;
   int arg2 ;
@@ -5711,6 +7477,38 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_glp_get_col_stat(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  int arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_get_col_stat" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_get_col_stat" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (int)glp_get_col_stat(arg1,arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_glp_get_col_prim(int argc, VALUE *argv, VALUE self) {
   glp_prob *arg1 = (glp_prob *) 0 ;
   int arg2 ;
@@ -5768,6 +7566,60 @@ _wrap_glp_get_col_dual(int argc, VALUE *argv, VALUE self) {
   arg2 = (int)(val2);
   result = (double)glp_get_col_dual(arg1,arg2);
   vresult = SWIG_From_double((double)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_get_unbnd_ray(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_get_unbnd_ray" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  result = (int)glp_get_unbnd_ray(arg1);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_interior(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  void *arg2 = (void *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_interior" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1],SWIG_as_voidptrptr(&arg2), 0, 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_interior" "', argument " "2"" of type '" "void const *""'"); 
+  }
+  result = (int)glp_interior(arg1,(void const *)arg2);
+  vresult = SWIG_From_int((int)(result));
   return vresult;
 fail:
   return Qnil;
@@ -6068,6 +7920,59 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_glp_intopt(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  glp_iocp *arg2 = (glp_iocp *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_intopt" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_intopt" "', argument " "2"" of type '" "glp_iocp const *""'"); 
+  }
+  arg2 = (glp_iocp *)(argp2);
+  result = (int)glp_intopt(arg1,(glp_iocp const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_init_iocp(int argc, VALUE *argv, VALUE self) {
+  glp_iocp *arg1 = (glp_iocp *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_iocp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_init_iocp" "', argument " "1"" of type '" "glp_iocp *""'"); 
+  }
+  arg1 = (glp_iocp *)(argp1);
+  glp_init_iocp(arg1);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_glp_mip_status(int argc, VALUE *argv, VALUE self) {
   glp_prob *arg1 = (glp_prob *) 0 ;
   int result;
@@ -6175,6 +8080,216 @@ _wrap_glp_mip_col_val(int argc, VALUE *argv, VALUE self) {
   vresult = SWIG_From_double((double)(result));
   return vresult;
 fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_read_sol(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_read_sol" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_read_sol" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)glp_read_sol(arg1,(char const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_write_sol(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_write_sol" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_write_sol" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)glp_write_sol(arg1,(char const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_read_ipt(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_read_ipt" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_read_ipt" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)glp_read_ipt(arg1,(char const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_write_ipt(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_write_ipt" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_write_ipt" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)glp_write_ipt(arg1,(char const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_read_mip(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_read_mip" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_read_mip" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)glp_read_mip(arg1,(char const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_write_mip(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_write_mip" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_write_mip" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)glp_write_mip(arg1,(char const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return Qnil;
 }
 
@@ -6464,6 +8579,812 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_glp_eval_tab_row(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  int arg2 ;
+  int *arg3 ;
+  double *arg4 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_eval_tab_row" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_eval_tab_row" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_eval_tab_row" "', argument " "3"" of type '" "int []""'"); 
+  } 
+  arg3 = (int *)(argp3);
+  res4 = SWIG_ConvertPtr(argv[3], &argp4,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "glp_eval_tab_row" "', argument " "4"" of type '" "double []""'"); 
+  } 
+  arg4 = (double *)(argp4);
+  result = (int)glp_eval_tab_row(arg1,arg2,arg3,arg4);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_eval_tab_col(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  int arg2 ;
+  int *arg3 ;
+  double *arg4 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_eval_tab_col" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_eval_tab_col" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_eval_tab_col" "', argument " "3"" of type '" "int []""'"); 
+  } 
+  arg3 = (int *)(argp3);
+  res4 = SWIG_ConvertPtr(argv[3], &argp4,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "glp_eval_tab_col" "', argument " "4"" of type '" "double []""'"); 
+  } 
+  arg4 = (double *)(argp4);
+  result = (int)glp_eval_tab_col(arg1,arg2,arg3,arg4);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_reason(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_reason" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  result = (int)glp_ios_reason(arg1);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_get_prob(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  glp_prob *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_get_prob" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  result = (glp_prob *)glp_ios_get_prob(arg1);
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_glp_prob, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_tree_size(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int *arg2 = (int *) 0 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_tree_size" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_ios_tree_size" "', argument " "2"" of type '" "int *""'"); 
+  }
+  arg2 = (int *)(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_ios_tree_size" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = (int *)(argp3);
+  res4 = SWIG_ConvertPtr(argv[3], &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "glp_ios_tree_size" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = (int *)(argp4);
+  glp_ios_tree_size(arg1,arg2,arg3,arg4);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_curr_node(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_curr_node" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  result = (int)glp_ios_curr_node(arg1);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_next_node(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_next_node" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_next_node" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (int)glp_ios_next_node(arg1,arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_prev_node(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_prev_node" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_prev_node" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (int)glp_ios_prev_node(arg1,arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_up_node(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_up_node" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_up_node" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (int)glp_ios_up_node(arg1,arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_node_level(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_node_level" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_node_level" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (int)glp_ios_node_level(arg1,arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_node_bound(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  double result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_node_bound" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_node_bound" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (double)glp_ios_node_bound(arg1,arg2);
+  vresult = SWIG_From_double((double)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_best_node(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_best_node" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  result = (int)glp_ios_best_node(arg1);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_mip_gap(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  double result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_mip_gap" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  result = (double)glp_ios_mip_gap(arg1);
+  vresult = SWIG_From_double((double)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_node_data(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  void *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_node_data" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_node_data" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (void *)glp_ios_node_data(arg1,arg2);
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_row_attr(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  glp_attr *arg3 = (glp_attr *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_row_attr" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_row_attr" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3,SWIGTYPE_p_glp_attr, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_ios_row_attr" "', argument " "3"" of type '" "glp_attr *""'"); 
+  }
+  arg3 = (glp_attr *)(argp3);
+  glp_ios_row_attr(arg1,arg2,arg3);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_pool_size(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_pool_size" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  result = (int)glp_ios_pool_size(arg1);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_add_row(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int *arg6 ;
+  double *arg7 ;
+  int arg8 ;
+  double arg9 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  void *argp6 = 0 ;
+  int res6 = 0 ;
+  void *argp7 = 0 ;
+  int res7 = 0 ;
+  int val8 ;
+  int ecode8 = 0 ;
+  double val9 ;
+  int ecode9 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 9) || (argc > 9)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 9)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_add_row" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_ios_add_row" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  ecode3 = SWIG_AsVal_int(argv[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "glp_ios_add_row" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(argv[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "glp_ios_add_row" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "glp_ios_add_row" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  res6 = SWIG_ConvertPtr(argv[5], &argp6,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res6)) {
+    SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "glp_ios_add_row" "', argument " "6"" of type '" "int const []""'"); 
+  } 
+  arg6 = (int *)(argp6);
+  res7 = SWIG_ConvertPtr(argv[6], &argp7,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res7)) {
+    SWIG_exception_fail(SWIG_ArgError(res7), "in method '" "glp_ios_add_row" "', argument " "7"" of type '" "double const []""'"); 
+  } 
+  arg7 = (double *)(argp7);
+  ecode8 = SWIG_AsVal_int(argv[7], &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "glp_ios_add_row" "', argument " "8"" of type '" "int""'");
+  } 
+  arg8 = (int)(val8);
+  ecode9 = SWIG_AsVal_double(argv[8], &val9);
+  if (!SWIG_IsOK(ecode9)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode9), "in method '" "glp_ios_add_row" "', argument " "9"" of type '" "double""'");
+  } 
+  arg9 = (double)(val9);
+  result = (int)glp_ios_add_row(arg1,(char const *)arg2,arg3,arg4,arg5,(int const (*))arg6,(double const (*))arg7,arg8,arg9);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_del_row(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_del_row" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_del_row" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  glp_ios_del_row(arg1,arg2);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_clear_pool(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_clear_pool" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  glp_ios_clear_pool(arg1);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_can_branch(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_can_branch" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_can_branch" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (int)glp_ios_can_branch(arg1,arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_branch_upon(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_branch_upon" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_branch_upon" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(argv[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "glp_ios_branch_upon" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  glp_ios_branch_upon(arg1,arg2,arg3);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_select_node(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_select_node" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_ios_select_node" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  glp_ios_select_node(arg1,arg2);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_heur_sol(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  double *arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_heur_sol" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_ios_heur_sol" "', argument " "2"" of type '" "double const []""'"); 
+  } 
+  arg2 = (double *)(argp2);
+  result = (int)glp_ios_heur_sol(arg1,(double const (*))arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_ios_terminate(int argc, VALUE *argv, VALUE self) {
+  glp_tree *arg1 = (glp_tree *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tree, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_ios_terminate" "', argument " "1"" of type '" "glp_tree *""'"); 
+  }
+  arg1 = (glp_tree *)(argp1);
+  glp_ios_terminate(arg1);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_glp_version(int argc, VALUE *argv, VALUE self) {
   char *result = 0 ;
   VALUE vresult = Qnil;
@@ -6474,6 +9395,27 @@ _wrap_glp_version(int argc, VALUE *argv, VALUE self) {
   result = (char *)glp_version();
   vresult = SWIG_FromCharPtr((const char *)result);
   return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_term_out(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "glp_term_out" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  glp_term_out(arg1);
+  return Qnil;
 fail:
   return Qnil;
 }
@@ -6506,11 +9448,86 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_glp_malloc(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  void *result = 0 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "glp_malloc" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  result = (void *)glp_malloc(arg1);
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_calloc(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  int arg2 ;
+  void *result = 0 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "glp_calloc" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_calloc" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (void *)glp_calloc(arg1,arg2);
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_free(int argc, VALUE *argv, VALUE self) {
+  void *arg1 = (void *) 0 ;
+  int res1 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0],SWIG_as_voidptrptr(&arg1), 0, 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_free" "', argument " "1"" of type '" "void *""'"); 
+  }
+  glp_free(arg1);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_glp_mem_usage(int argc, VALUE *argv, VALUE self) {
   int *arg1 = (int *) 0 ;
   int *arg2 = (int *) 0 ;
-  glp_ulong *arg3 = (glp_ulong *) 0 ;
-  glp_ulong *arg4 = (glp_ulong *) 0 ;
+  glp_long *arg3 = (glp_long *) 0 ;
+  glp_long *arg4 = (glp_long *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -6533,16 +9550,16 @@ _wrap_glp_mem_usage(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_mem_usage" "', argument " "2"" of type '" "int *""'"); 
   }
   arg2 = (int *)(argp2);
-  res3 = SWIG_ConvertPtr(argv[2], &argp3,SWIGTYPE_p_glp_ulong, 0 |  0 );
+  res3 = SWIG_ConvertPtr(argv[2], &argp3,SWIGTYPE_p_glp_long, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_mem_usage" "', argument " "3"" of type '" "glp_ulong *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_mem_usage" "', argument " "3"" of type '" "glp_long *""'"); 
   }
-  arg3 = (glp_ulong *)(argp3);
-  res4 = SWIG_ConvertPtr(argv[3], &argp4,SWIGTYPE_p_glp_ulong, 0 |  0 );
+  arg3 = (glp_long *)(argp3);
+  res4 = SWIG_ConvertPtr(argv[3], &argp4,SWIGTYPE_p_glp_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "glp_mem_usage" "', argument " "4"" of type '" "glp_ulong *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "glp_mem_usage" "', argument " "4"" of type '" "glp_long *""'"); 
   }
-  arg4 = (glp_ulong *)(argp4);
+  arg4 = (glp_long *)(argp4);
   glp_mem_usage(arg1,arg2,arg3,arg4);
   return Qnil;
 fail:
@@ -6566,6 +9583,449 @@ _wrap_glp_mem_limit(int argc, VALUE *argv, VALUE self) {
   arg1 = (int)(val1);
   glp_mem_limit(arg1);
   return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_free_env(int argc, VALUE *argv, VALUE self) {
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  glp_free_env();
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_read_mps(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  int arg2 ;
+  void *arg3 = (void *) 0 ;
+  char *arg4 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_read_mps" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_read_mps" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  res3 = SWIG_ConvertPtr(argv[2],SWIG_as_voidptrptr(&arg3), 0, 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_read_mps" "', argument " "3"" of type '" "void const *""'"); 
+  }
+  res4 = SWIG_AsCharPtrAndSize(argv[3], &buf4, NULL, &alloc4);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "glp_read_mps" "', argument " "4"" of type '" "char const *""'");
+  }
+  arg4 = (char *)(buf4);
+  result = (int)glp_read_mps(arg1,arg2,(void const *)arg3,(char const *)arg4);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return vresult;
+fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_write_mps(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  int arg2 ;
+  void *arg3 = (void *) 0 ;
+  char *arg4 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_write_mps" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "glp_write_mps" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  res3 = SWIG_ConvertPtr(argv[2],SWIG_as_voidptrptr(&arg3), 0, 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_write_mps" "', argument " "3"" of type '" "void const *""'"); 
+  }
+  res4 = SWIG_AsCharPtrAndSize(argv[3], &buf4, NULL, &alloc4);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "glp_write_mps" "', argument " "4"" of type '" "char const *""'");
+  }
+  arg4 = (char *)(buf4);
+  result = (int)glp_write_mps(arg1,arg2,(void const *)arg3,(char const *)arg4);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return vresult;
+fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_read_lp(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  void *arg2 = (void *) 0 ;
+  char *arg3 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_read_lp" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1],SWIG_as_voidptrptr(&arg2), 0, 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_read_lp" "', argument " "2"" of type '" "void const *""'"); 
+  }
+  res3 = SWIG_AsCharPtrAndSize(argv[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_read_lp" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = (char *)(buf3);
+  result = (int)glp_read_lp(arg1,(void const *)arg2,(char const *)arg3);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  return vresult;
+fail:
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_write_lp(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  void *arg2 = (void *) 0 ;
+  char *arg3 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_write_lp" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1],SWIG_as_voidptrptr(&arg2), 0, 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_write_lp" "', argument " "2"" of type '" "void const *""'"); 
+  }
+  res3 = SWIG_AsCharPtrAndSize(argv[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "glp_write_lp" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = (char *)(buf3);
+  result = (int)glp_write_lp(arg1,(void const *)arg2,(char const *)arg3);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  return vresult;
+fail:
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_mpl_alloc_wksp(int argc, VALUE *argv, VALUE self) {
+  glp_tran *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  result = (glp_tran *)glp_mpl_alloc_wksp();
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_glp_tran, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_mpl_read_model(int argc, VALUE *argv, VALUE self) {
+  glp_tran *arg1 = (glp_tran *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int arg3 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tran, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_mpl_read_model" "', argument " "1"" of type '" "glp_tran *""'"); 
+  }
+  arg1 = (glp_tran *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_mpl_read_model" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  ecode3 = SWIG_AsVal_int(argv[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "glp_mpl_read_model" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  result = (int)glp_mpl_read_model(arg1,(char const *)arg2,arg3);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_mpl_read_data(int argc, VALUE *argv, VALUE self) {
+  glp_tran *arg1 = (glp_tran *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tran, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_mpl_read_data" "', argument " "1"" of type '" "glp_tran *""'"); 
+  }
+  arg1 = (glp_tran *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_mpl_read_data" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)glp_mpl_read_data(arg1,(char const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_mpl_generate(int argc, VALUE *argv, VALUE self) {
+  glp_tran *arg1 = (glp_tran *) 0 ;
+  char *arg2 = (char *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tran, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_mpl_generate" "', argument " "1"" of type '" "glp_tran *""'"); 
+  }
+  arg1 = (glp_tran *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(argv[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_mpl_generate" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)glp_mpl_generate(arg1,(char const *)arg2);
+  vresult = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return vresult;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_mpl_build_prob(int argc, VALUE *argv, VALUE self) {
+  glp_tran *arg1 = (glp_tran *) 0 ;
+  glp_prob *arg2 = (glp_prob *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tran, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_mpl_build_prob" "', argument " "1"" of type '" "glp_tran *""'"); 
+  }
+  arg1 = (glp_tran *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_mpl_build_prob" "', argument " "2"" of type '" "glp_prob *""'"); 
+  }
+  arg2 = (glp_prob *)(argp2);
+  glp_mpl_build_prob(arg1,arg2);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_mpl_postsolve(int argc, VALUE *argv, VALUE self) {
+  glp_tran *arg1 = (glp_tran *) 0 ;
+  glp_prob *arg2 = (glp_prob *) 0 ;
+  int arg3 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tran, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_mpl_postsolve" "', argument " "1"" of type '" "glp_tran *""'"); 
+  }
+  arg1 = (glp_tran *)(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_mpl_postsolve" "', argument " "2"" of type '" "glp_prob *""'"); 
+  }
+  arg2 = (glp_prob *)(argp2);
+  ecode3 = SWIG_AsVal_int(argv[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "glp_mpl_postsolve" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  result = (int)glp_mpl_postsolve(arg1,arg2,arg3);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_mpl_free_wksp(int argc, VALUE *argv, VALUE self) {
+  glp_tran *arg1 = (glp_tran *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_tran, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "glp_mpl_free_wksp" "', argument " "1"" of type '" "glp_tran *""'"); 
+  }
+  arg1 = (glp_tran *)(argp1);
+  glp_mpl_free_wksp(arg1);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_glp_main(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  char **arg2 ;
+  int result;
+  int val1 ;
+  int ecode1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "glp_main" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_p_char, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "glp_main" "', argument " "2"" of type '" "char const *[]""'"); 
+  } 
+  arg2 = (char **)(argp2);
+  result = (int)glp_main(arg1,(char const *(*))arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
 fail:
   return Qnil;
 }
@@ -9399,69 +12859,6 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap__glp_lpx_std_basis(int argc, VALUE *argv, VALUE self) {
-  glp_prob *arg1 = (glp_prob *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_glp_lpx_std_basis" "', argument " "1"" of type '" "glp_prob *""'"); 
-  }
-  arg1 = (glp_prob *)(argp1);
-  _glp_lpx_std_basis(arg1);
-  return Qnil;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap__glp_lpx_adv_basis(int argc, VALUE *argv, VALUE self) {
-  glp_prob *arg1 = (glp_prob *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_glp_lpx_adv_basis" "', argument " "1"" of type '" "glp_prob *""'"); 
-  }
-  arg1 = (glp_prob *)(argp1);
-  _glp_lpx_adv_basis(arg1);
-  return Qnil;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap__glp_lpx_cpx_basis(int argc, VALUE *argv, VALUE self) {
-  glp_prob *arg1 = (glp_prob *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_glp_lpx_cpx_basis" "', argument " "1"" of type '" "glp_prob *""'"); 
-  }
-  arg1 = (glp_prob *)(argp1);
-  _glp_lpx_cpx_basis(arg1);
-  return Qnil;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
 _wrap__glp_lpx_set_row_stat(int argc, VALUE *argv, VALUE self) {
   glp_prob *arg1 = (glp_prob *) 0 ;
   int arg2 ;
@@ -9529,6 +12926,69 @@ _wrap__glp_lpx_set_col_stat(int argc, VALUE *argv, VALUE self) {
   } 
   arg3 = (int)(val3);
   _glp_lpx_set_col_stat(arg1,arg2,arg3);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap__glp_lpx_std_basis(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_glp_lpx_std_basis" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  _glp_lpx_std_basis(arg1);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap__glp_lpx_adv_basis(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_glp_lpx_adv_basis" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  _glp_lpx_adv_basis(arg1);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap__glp_lpx_cpx_basis(int argc, VALUE *argv, VALUE self) {
+  glp_prob *arg1 = (glp_prob *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "_glp_lpx_cpx_basis" "', argument " "1"" of type '" "glp_prob *""'"); 
+  }
+  arg1 = (glp_prob *)(argp1);
+  _glp_lpx_cpx_basis(arg1);
   return Qnil;
 fail:
   return Qnil;
@@ -11609,6 +15069,7 @@ _wrap__glp_lpx_write_pb(int argc, VALUE *argv, VALUE self) {
   glp_prob *arg1 = (glp_prob *) 0 ;
   char *arg2 = (char *) 0 ;
   int arg3 ;
+  int arg4 ;
   int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -11617,10 +15078,12 @@ _wrap__glp_lpx_write_pb(int argc, VALUE *argv, VALUE self) {
   int alloc2 = 0 ;
   int val3 ;
   int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
   VALUE vresult = Qnil;
   
-  if ((argc < 3) || (argc > 3)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
   }
   res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_glp_prob, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
@@ -11637,12 +15100,49 @@ _wrap__glp_lpx_write_pb(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "_glp_lpx_write_pb" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = (int)(val3);
-  result = (int)_glp_lpx_write_pb(arg1,(char const *)arg2,arg3);
+  ecode4 = SWIG_AsVal_int(argv[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "_glp_lpx_write_pb" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  result = (int)_glp_lpx_write_pb(arg1,(char const *)arg2,arg3,arg4);
   vresult = SWIG_From_int((int)(result));
   if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return vresult;
 fail:
   if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap__glp_lpx_main(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  char **arg2 ;
+  int result;
+  int val1 ;
+  int ecode1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "_glp_lpx_main" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_p_char, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "_glp_lpx_main" "', argument " "2"" of type '" "char const *[]""'"); 
+  } 
+  arg2 = (char **)(argp2);
+  result = (int)_glp_lpx_main(arg1,(char const *(*))arg2);
+  vresult = SWIG_From_int((int)(result));
+  return vresult;
+fail:
   return Qnil;
 }
 
@@ -11653,45 +15153,73 @@ fail:
 static swig_type_info _swigt__p_LPXKKT = {"_p_LPXKKT", "LPXKKT *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_glp_tree_p_void__void = {"_p_f_p_glp_tree_p_void__void", "void (*)(glp_tree *,void *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_void_p_q_const__char__int = {"_p_f_p_void_p_q_const__char__int", "int (*)(void *,char const *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_glp_attr = {"_p_glp_attr", "glp_attr *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_glp_bfcp = {"_p_glp_bfcp", "struct glp_bfcp *|glp_bfcp *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_glp_iocp = {"_p_glp_iocp", "glp_iocp *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_glp_long = {"_p_glp_long", "glp_long *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_glp_prob = {"_p_glp_prob", "glp_prob *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_glp_smcp = {"_p_glp_smcp", "glp_smcp *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_glp_ulong = {"_p_glp_ulong", "glp_ulong *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_glp_tran = {"_p_glp_tran", "glp_tran *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_glp_tree = {"_p_glp_tree", "glp_tree *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_char = {"_p_p_char", "char **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_void = {"_p_void", "void *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_LPXKKT,
   &_swigt__p_char,
   &_swigt__p_double,
+  &_swigt__p_f_p_glp_tree_p_void__void,
   &_swigt__p_f_p_void_p_q_const__char__int,
+  &_swigt__p_glp_attr,
   &_swigt__p_glp_bfcp,
+  &_swigt__p_glp_iocp,
+  &_swigt__p_glp_long,
   &_swigt__p_glp_prob,
   &_swigt__p_glp_smcp,
-  &_swigt__p_glp_ulong,
+  &_swigt__p_glp_tran,
+  &_swigt__p_glp_tree,
   &_swigt__p_int,
+  &_swigt__p_p_char,
+  &_swigt__p_void,
 };
 
 static swig_cast_info _swigc__p_LPXKKT[] = {  {&_swigt__p_LPXKKT, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_glp_tree_p_void__void[] = {  {&_swigt__p_f_p_glp_tree_p_void__void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_void_p_q_const__char__int[] = {  {&_swigt__p_f_p_void_p_q_const__char__int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_glp_attr[] = {  {&_swigt__p_glp_attr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_glp_bfcp[] = {  {&_swigt__p_glp_bfcp, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_glp_iocp[] = {  {&_swigt__p_glp_iocp, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_glp_long[] = {  {&_swigt__p_glp_long, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_glp_prob[] = {  {&_swigt__p_glp_prob, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_glp_smcp[] = {  {&_swigt__p_glp_smcp, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_glp_ulong[] = {  {&_swigt__p_glp_ulong, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_glp_tran[] = {  {&_swigt__p_glp_tran, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_glp_tree[] = {  {&_swigt__p_glp_tree, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_char[] = {  {&_swigt__p_p_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_LPXKKT,
   _swigc__p_char,
   _swigc__p_double,
+  _swigc__p_f_p_glp_tree_p_void__void,
   _swigc__p_f_p_void_p_q_const__char__int,
+  _swigc__p_glp_attr,
   _swigc__p_glp_bfcp,
+  _swigc__p_glp_iocp,
+  _swigc__p_glp_long,
   _swigc__p_glp_prob,
   _swigc__p_glp_smcp,
-  _swigc__p_glp_ulong,
+  _swigc__p_glp_tran,
+  _swigc__p_glp_tree,
   _swigc__p_int,
+  _swigc__p_p_char,
+  _swigc__p_void,
 };
 
 
@@ -11950,14 +15478,14 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_module_function(mRglpk, "doubleArray_getitem", _wrap_doubleArray_getitem, -1);
   rb_define_module_function(mRglpk, "doubleArray_setitem", _wrap_doubleArray_setitem, -1);
   rb_define_const(mRglpk, "GLP_MAJOR_VERSION", SWIG_From_int((int)(4)));
-  rb_define_const(mRglpk, "GLP_MINOR_VERSION", SWIG_From_int((int)(19)));
+  rb_define_const(mRglpk, "GLP_MINOR_VERSION", SWIG_From_int((int)(33)));
   
   cGlp_prob.klass = rb_define_class_under(mRglpk, "Glp_prob", rb_cObject);
   SWIG_TypeClientData(SWIGTYPE_p_glp_prob, (void *) &cGlp_prob);
   rb_define_alloc_func(cGlp_prob.klass, _wrap_glp_prob_allocate);
   rb_define_method(cGlp_prob.klass, "initialize", _wrap_new_glp_prob, -1);
-  rb_define_method(cGlp_prob.klass, "_prob=", _wrap_glp_prob__prob_set, -1);
-  rb_define_method(cGlp_prob.klass, "_prob", _wrap_glp_prob__prob_get, -1);
+  rb_define_method(cGlp_prob.klass, "_opaque_prob=", _wrap_glp_prob__opaque_prob_set, -1);
+  rb_define_method(cGlp_prob.klass, "_opaque_prob", _wrap_glp_prob__opaque_prob_get, -1);
   cGlp_prob.mark = 0;
   cGlp_prob.destroy = (void (*)(void *)) free_glp_prob;
   cGlp_prob.trackObjects = 0;
@@ -11976,6 +15504,11 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_const(mRglpk, "GLP_NU", SWIG_From_int((int)(3)));
   rb_define_const(mRglpk, "GLP_NF", SWIG_From_int((int)(4)));
   rb_define_const(mRglpk, "GLP_NS", SWIG_From_int((int)(5)));
+  rb_define_const(mRglpk, "GLP_SF_GM", SWIG_From_int((int)(0x01)));
+  rb_define_const(mRglpk, "GLP_SF_EQ", SWIG_From_int((int)(0x10)));
+  rb_define_const(mRglpk, "GLP_SF_2N", SWIG_From_int((int)(0x20)));
+  rb_define_const(mRglpk, "GLP_SF_SKIP", SWIG_From_int((int)(0x40)));
+  rb_define_const(mRglpk, "GLP_SF_AUTO", SWIG_From_int((int)(0x80)));
   rb_define_const(mRglpk, "GLP_UNDEF", SWIG_From_int((int)(1)));
   rb_define_const(mRglpk, "GLP_FEAS", SWIG_From_int((int)(2)));
   rb_define_const(mRglpk, "GLP_INFEAS", SWIG_From_int((int)(3)));
@@ -11983,17 +15516,17 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_const(mRglpk, "GLP_OPT", SWIG_From_int((int)(5)));
   rb_define_const(mRglpk, "GLP_UNBND", SWIG_From_int((int)(6)));
   
-  cGlp_ulong.klass = rb_define_class_under(mRglpk, "Glp_ulong", rb_cObject);
-  SWIG_TypeClientData(SWIGTYPE_p_glp_ulong, (void *) &cGlp_ulong);
-  rb_define_alloc_func(cGlp_ulong.klass, _wrap_glp_ulong_allocate);
-  rb_define_method(cGlp_ulong.klass, "initialize", _wrap_new_glp_ulong, -1);
-  rb_define_method(cGlp_ulong.klass, "lo=", _wrap_glp_ulong_lo_set, -1);
-  rb_define_method(cGlp_ulong.klass, "lo", _wrap_glp_ulong_lo_get, -1);
-  rb_define_method(cGlp_ulong.klass, "hi=", _wrap_glp_ulong_hi_set, -1);
-  rb_define_method(cGlp_ulong.klass, "hi", _wrap_glp_ulong_hi_get, -1);
-  cGlp_ulong.mark = 0;
-  cGlp_ulong.destroy = (void (*)(void *)) free_glp_ulong;
-  cGlp_ulong.trackObjects = 0;
+  cGlp_long.klass = rb_define_class_under(mRglpk, "Glp_long", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_glp_long, (void *) &cGlp_long);
+  rb_define_alloc_func(cGlp_long.klass, _wrap_glp_long_allocate);
+  rb_define_method(cGlp_long.klass, "initialize", _wrap_new_glp_long, -1);
+  rb_define_method(cGlp_long.klass, "lo=", _wrap_glp_long_lo_set, -1);
+  rb_define_method(cGlp_long.klass, "lo", _wrap_glp_long_lo_get, -1);
+  rb_define_method(cGlp_long.klass, "hi=", _wrap_glp_long_hi_set, -1);
+  rb_define_method(cGlp_long.klass, "hi", _wrap_glp_long_hi_get, -1);
+  cGlp_long.mark = 0;
+  cGlp_long.destroy = (void (*)(void *)) free_glp_long;
+  cGlp_long.trackObjects = 0;
   rb_define_const(mRglpk, "GLP_BF_FT", SWIG_From_int((int)(1)));
   rb_define_const(mRglpk, "GLP_BF_BG", SWIG_From_int((int)(2)));
   rb_define_const(mRglpk, "GLP_BF_GR", SWIG_From_int((int)(3)));
@@ -12035,8 +15568,10 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_const(mRglpk, "GLP_MSG_ERR", SWIG_From_int((int)(1)));
   rb_define_const(mRglpk, "GLP_MSG_ON", SWIG_From_int((int)(2)));
   rb_define_const(mRglpk, "GLP_MSG_ALL", SWIG_From_int((int)(3)));
+  rb_define_const(mRglpk, "GLP_MSG_DBG", SWIG_From_int((int)(4)));
   rb_define_const(mRglpk, "GLP_PRIMAL", SWIG_From_int((int)(1)));
   rb_define_const(mRglpk, "GLP_DUALP", SWIG_From_int((int)(2)));
+  rb_define_const(mRglpk, "GLP_DUAL", SWIG_From_int((int)(3)));
   rb_define_const(mRglpk, "GLP_PT_STD", SWIG_From_int((int)(0x11)));
   rb_define_const(mRglpk, "GLP_PT_PSE", SWIG_From_int((int)(0x22)));
   rb_define_const(mRglpk, "GLP_RT_STD", SWIG_From_int((int)(0x11)));
@@ -12079,8 +15614,118 @@ SWIGEXPORT void Init_rglpk(void) {
   cGlp_smcp.mark = 0;
   cGlp_smcp.destroy = (void (*)(void *)) free_glp_smcp;
   cGlp_smcp.trackObjects = 0;
+  
+  cGlp_tree.klass = rb_define_class_under(mRglpk, "Glp_tree", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_glp_tree, (void *) &cGlp_tree);
+  rb_define_alloc_func(cGlp_tree.klass, _wrap_glp_tree_allocate);
+  rb_define_method(cGlp_tree.klass, "initialize", _wrap_new_glp_tree, -1);
+  rb_define_method(cGlp_tree.klass, "_opaque_tree=", _wrap_glp_tree__opaque_tree_set, -1);
+  rb_define_method(cGlp_tree.klass, "_opaque_tree", _wrap_glp_tree__opaque_tree_get, -1);
+  cGlp_tree.mark = 0;
+  cGlp_tree.destroy = (void (*)(void *)) free_glp_tree;
+  cGlp_tree.trackObjects = 0;
+  rb_define_const(mRglpk, "GLP_MSG_OFF", SWIG_From_int((int)(0)));
+  rb_define_const(mRglpk, "GLP_MSG_ERR", SWIG_From_int((int)(1)));
+  rb_define_const(mRglpk, "GLP_MSG_ON", SWIG_From_int((int)(2)));
+  rb_define_const(mRglpk, "GLP_MSG_ALL", SWIG_From_int((int)(3)));
+  rb_define_const(mRglpk, "GLP_MSG_DBG", SWIG_From_int((int)(4)));
+  rb_define_const(mRglpk, "GLP_BR_FFV", SWIG_From_int((int)(1)));
+  rb_define_const(mRglpk, "GLP_BR_LFV", SWIG_From_int((int)(2)));
+  rb_define_const(mRglpk, "GLP_BR_MFV", SWIG_From_int((int)(3)));
+  rb_define_const(mRglpk, "GLP_BR_DTH", SWIG_From_int((int)(4)));
+  rb_define_const(mRglpk, "GLP_BR_HPC", SWIG_From_int((int)(5)));
+  rb_define_const(mRglpk, "GLP_BT_DFS", SWIG_From_int((int)(1)));
+  rb_define_const(mRglpk, "GLP_BT_BFS", SWIG_From_int((int)(2)));
+  rb_define_const(mRglpk, "GLP_BT_BLB", SWIG_From_int((int)(3)));
+  rb_define_const(mRglpk, "GLP_BT_BPH", SWIG_From_int((int)(4)));
+  rb_define_const(mRglpk, "GLP_PP_NONE", SWIG_From_int((int)(0)));
+  rb_define_const(mRglpk, "GLP_PP_ROOT", SWIG_From_int((int)(1)));
+  rb_define_const(mRglpk, "GLP_PP_ALL", SWIG_From_int((int)(2)));
+  
+  cGlp_iocp.klass = rb_define_class_under(mRglpk, "Glp_iocp", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_glp_iocp, (void *) &cGlp_iocp);
+  rb_define_alloc_func(cGlp_iocp.klass, _wrap_glp_iocp_allocate);
+  rb_define_method(cGlp_iocp.klass, "initialize", _wrap_new_glp_iocp, -1);
+  rb_define_method(cGlp_iocp.klass, "msg_lev=", _wrap_glp_iocp_msg_lev_set, -1);
+  rb_define_method(cGlp_iocp.klass, "msg_lev", _wrap_glp_iocp_msg_lev_get, -1);
+  rb_define_method(cGlp_iocp.klass, "br_tech=", _wrap_glp_iocp_br_tech_set, -1);
+  rb_define_method(cGlp_iocp.klass, "br_tech", _wrap_glp_iocp_br_tech_get, -1);
+  rb_define_method(cGlp_iocp.klass, "bt_tech=", _wrap_glp_iocp_bt_tech_set, -1);
+  rb_define_method(cGlp_iocp.klass, "bt_tech", _wrap_glp_iocp_bt_tech_get, -1);
+  rb_define_method(cGlp_iocp.klass, "tol_int=", _wrap_glp_iocp_tol_int_set, -1);
+  rb_define_method(cGlp_iocp.klass, "tol_int", _wrap_glp_iocp_tol_int_get, -1);
+  rb_define_method(cGlp_iocp.klass, "tol_obj=", _wrap_glp_iocp_tol_obj_set, -1);
+  rb_define_method(cGlp_iocp.klass, "tol_obj", _wrap_glp_iocp_tol_obj_get, -1);
+  rb_define_method(cGlp_iocp.klass, "tm_lim=", _wrap_glp_iocp_tm_lim_set, -1);
+  rb_define_method(cGlp_iocp.klass, "tm_lim", _wrap_glp_iocp_tm_lim_get, -1);
+  rb_define_method(cGlp_iocp.klass, "out_frq=", _wrap_glp_iocp_out_frq_set, -1);
+  rb_define_method(cGlp_iocp.klass, "out_frq", _wrap_glp_iocp_out_frq_get, -1);
+  rb_define_method(cGlp_iocp.klass, "out_dly=", _wrap_glp_iocp_out_dly_set, -1);
+  rb_define_method(cGlp_iocp.klass, "out_dly", _wrap_glp_iocp_out_dly_get, -1);
+  rb_define_method(cGlp_iocp.klass, "cb_func=", _wrap_glp_iocp_cb_func_set, -1);
+  rb_define_method(cGlp_iocp.klass, "cb_func", _wrap_glp_iocp_cb_func_get, -1);
+  rb_define_method(cGlp_iocp.klass, "cb_info=", _wrap_glp_iocp_cb_info_set, -1);
+  rb_define_method(cGlp_iocp.klass, "cb_info", _wrap_glp_iocp_cb_info_get, -1);
+  rb_define_method(cGlp_iocp.klass, "cb_size=", _wrap_glp_iocp_cb_size_set, -1);
+  rb_define_method(cGlp_iocp.klass, "cb_size", _wrap_glp_iocp_cb_size_get, -1);
+  rb_define_method(cGlp_iocp.klass, "pp_tech=", _wrap_glp_iocp_pp_tech_set, -1);
+  rb_define_method(cGlp_iocp.klass, "pp_tech", _wrap_glp_iocp_pp_tech_get, -1);
+  rb_define_method(cGlp_iocp.klass, "mip_gap=", _wrap_glp_iocp_mip_gap_set, -1);
+  rb_define_method(cGlp_iocp.klass, "mip_gap", _wrap_glp_iocp_mip_gap_get, -1);
+  rb_define_method(cGlp_iocp.klass, "mir_cuts=", _wrap_glp_iocp_mir_cuts_set, -1);
+  rb_define_method(cGlp_iocp.klass, "mir_cuts", _wrap_glp_iocp_mir_cuts_get, -1);
+  rb_define_method(cGlp_iocp.klass, "gmi_cuts=", _wrap_glp_iocp_gmi_cuts_set, -1);
+  rb_define_method(cGlp_iocp.klass, "gmi_cuts", _wrap_glp_iocp_gmi_cuts_get, -1);
+  rb_define_method(cGlp_iocp.klass, "cov_cuts=", _wrap_glp_iocp_cov_cuts_set, -1);
+  rb_define_method(cGlp_iocp.klass, "cov_cuts", _wrap_glp_iocp_cov_cuts_get, -1);
+  rb_define_method(cGlp_iocp.klass, "clq_cuts=", _wrap_glp_iocp_clq_cuts_set, -1);
+  rb_define_method(cGlp_iocp.klass, "clq_cuts", _wrap_glp_iocp_clq_cuts_get, -1);
+  rb_define_method(cGlp_iocp.klass, "presolve=", _wrap_glp_iocp_presolve_set, -1);
+  rb_define_method(cGlp_iocp.klass, "presolve", _wrap_glp_iocp_presolve_get, -1);
+  rb_define_method(cGlp_iocp.klass, "binarize=", _wrap_glp_iocp_binarize_set, -1);
+  rb_define_method(cGlp_iocp.klass, "binarize", _wrap_glp_iocp_binarize_get, -1);
+  rb_define_method(cGlp_iocp.klass, "foo_bar=", _wrap_glp_iocp_foo_bar_set, -1);
+  rb_define_method(cGlp_iocp.klass, "foo_bar", _wrap_glp_iocp_foo_bar_get, -1);
+  rb_define_method(cGlp_iocp.klass, "fn_sol=", _wrap_glp_iocp_fn_sol_set, -1);
+  rb_define_method(cGlp_iocp.klass, "fn_sol", _wrap_glp_iocp_fn_sol_get, -1);
+  cGlp_iocp.mark = 0;
+  cGlp_iocp.destroy = (void (*)(void *)) free_glp_iocp;
+  cGlp_iocp.trackObjects = 0;
+  rb_define_const(mRglpk, "GLP_RF_REG", SWIG_From_int((int)(0)));
+  rb_define_const(mRglpk, "GLP_RF_LAZY", SWIG_From_int((int)(1)));
+  rb_define_const(mRglpk, "GLP_RF_CUT", SWIG_From_int((int)(2)));
+  rb_define_const(mRglpk, "GLP_RF_GMI", SWIG_From_int((int)(1)));
+  rb_define_const(mRglpk, "GLP_RF_MIR", SWIG_From_int((int)(2)));
+  rb_define_const(mRglpk, "GLP_RF_COV", SWIG_From_int((int)(3)));
+  rb_define_const(mRglpk, "GLP_RF_CLQ", SWIG_From_int((int)(4)));
+  
+  cGlp_attr.klass = rb_define_class_under(mRglpk, "Glp_attr", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_glp_attr, (void *) &cGlp_attr);
+  rb_define_alloc_func(cGlp_attr.klass, _wrap_glp_attr_allocate);
+  rb_define_method(cGlp_attr.klass, "initialize", _wrap_new_glp_attr, -1);
+  rb_define_method(cGlp_attr.klass, "level=", _wrap_glp_attr_level_set, -1);
+  rb_define_method(cGlp_attr.klass, "level", _wrap_glp_attr_level_get, -1);
+  rb_define_method(cGlp_attr.klass, "origin=", _wrap_glp_attr_origin_set, -1);
+  rb_define_method(cGlp_attr.klass, "origin", _wrap_glp_attr_origin_get, -1);
+  rb_define_method(cGlp_attr.klass, "klass=", _wrap_glp_attr_klass_set, -1);
+  rb_define_method(cGlp_attr.klass, "klass", _wrap_glp_attr_klass_get, -1);
+  rb_define_method(cGlp_attr.klass, "foo_bar=", _wrap_glp_attr_foo_bar_set, -1);
+  rb_define_method(cGlp_attr.klass, "foo_bar", _wrap_glp_attr_foo_bar_get, -1);
+  cGlp_attr.mark = 0;
+  cGlp_attr.destroy = (void (*)(void *)) free_glp_attr;
+  cGlp_attr.trackObjects = 0;
   rb_define_const(mRglpk, "GLP_ON", SWIG_From_int((int)(1)));
   rb_define_const(mRglpk, "GLP_OFF", SWIG_From_int((int)(0)));
+  rb_define_const(mRglpk, "GLP_IROWGEN", SWIG_From_int((int)(0x01)));
+  rb_define_const(mRglpk, "GLP_IBINGO", SWIG_From_int((int)(0x02)));
+  rb_define_const(mRglpk, "GLP_IHEUR", SWIG_From_int((int)(0x03)));
+  rb_define_const(mRglpk, "GLP_ICUTGEN", SWIG_From_int((int)(0x04)));
+  rb_define_const(mRglpk, "GLP_IBRANCH", SWIG_From_int((int)(0x05)));
+  rb_define_const(mRglpk, "GLP_ISELECT", SWIG_From_int((int)(0x06)));
+  rb_define_const(mRglpk, "GLP_IPREPRO", SWIG_From_int((int)(0x07)));
+  rb_define_const(mRglpk, "GLP_NO_BRNCH", SWIG_From_int((int)(0)));
+  rb_define_const(mRglpk, "GLP_DN_BRNCH", SWIG_From_int((int)(1)));
+  rb_define_const(mRglpk, "GLP_UP_BRNCH", SWIG_From_int((int)(2)));
   rb_define_const(mRglpk, "GLP_EBADB", SWIG_From_int((int)(0x01)));
   rb_define_const(mRglpk, "GLP_ESING", SWIG_From_int((int)(0x02)));
   rb_define_const(mRglpk, "GLP_ECOND", SWIG_From_int((int)(0x03)));
@@ -12092,6 +15737,27 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_const(mRglpk, "GLP_ETMLIM", SWIG_From_int((int)(0x09)));
   rb_define_const(mRglpk, "GLP_ENOPFS", SWIG_From_int((int)(0x0A)));
   rb_define_const(mRglpk, "GLP_ENODFS", SWIG_From_int((int)(0x0B)));
+  rb_define_const(mRglpk, "GLP_EROOT", SWIG_From_int((int)(0x0C)));
+  rb_define_const(mRglpk, "GLP_ESTOP", SWIG_From_int((int)(0x0D)));
+  rb_define_const(mRglpk, "GLP_EMIPGAP", SWIG_From_int((int)(0x0E)));
+  rb_define_const(mRglpk, "GLP_ENOFEAS", SWIG_From_int((int)(0x0F)));
+  rb_define_const(mRglpk, "GLP_ENOCVG", SWIG_From_int((int)(0x10)));
+  rb_define_const(mRglpk, "GLP_EINSTAB", SWIG_From_int((int)(0x11)));
+  rb_define_const(mRglpk, "GLP_MPS_DECK", SWIG_From_int((int)(1)));
+  rb_define_const(mRglpk, "GLP_MPS_FILE", SWIG_From_int((int)(2)));
+  
+  cGlp_tran.klass = rb_define_class_under(mRglpk, "Glp_tran", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_glp_tran, (void *) &cGlp_tran);
+  rb_define_alloc_func(cGlp_tran.klass, _wrap_glp_tran_allocate);
+  rb_define_method(cGlp_tran.klass, "initialize", _wrap_new_glp_tran, -1);
+  rb_define_method(cGlp_tran.klass, "_opaque_tran=", _wrap_glp_tran__opaque_tran_set, -1);
+  rb_define_method(cGlp_tran.klass, "_opaque_tran", _wrap_glp_tran__opaque_tran_get, -1);
+  cGlp_tran.mark = 0;
+  cGlp_tran.destroy = (void (*)(void *)) free_glp_tran;
+  cGlp_tran.trackObjects = 0;
+  rb_define_const(mRglpk, "GLP_MPL_SOL", SWIG_From_int((int)(1)));
+  rb_define_const(mRglpk, "GLP_MPL_IPT", SWIG_From_int((int)(2)));
+  rb_define_const(mRglpk, "GLP_MPL_MIP", SWIG_From_int((int)(3)));
   rb_define_module_function(mRglpk, "glp_create_prob", _wrap_glp_create_prob, -1);
   rb_define_module_function(mRglpk, "glp_set_prob_name", _wrap_glp_set_prob_name, -1);
   rb_define_module_function(mRglpk, "glp_set_obj_name", _wrap_glp_set_obj_name, -1);
@@ -12108,6 +15774,8 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_module_function(mRglpk, "glp_load_matrix", _wrap_glp_load_matrix, -1);
   rb_define_module_function(mRglpk, "glp_del_rows", _wrap_glp_del_rows, -1);
   rb_define_module_function(mRglpk, "glp_del_cols", _wrap_glp_del_cols, -1);
+  rb_define_module_function(mRglpk, "glp_copy_prob", _wrap_glp_copy_prob, -1);
+  rb_define_module_function(mRglpk, "glp_erase_prob", _wrap_glp_erase_prob, -1);
   rb_define_module_function(mRglpk, "glp_delete_prob", _wrap_glp_delete_prob, -1);
   rb_define_module_function(mRglpk, "glp_get_prob_name", _wrap_glp_get_prob_name, -1);
   rb_define_module_function(mRglpk, "glp_get_obj_name", _wrap_glp_get_obj_name, -1);
@@ -12134,21 +15802,28 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_module_function(mRglpk, "glp_set_sjj", _wrap_glp_set_sjj, -1);
   rb_define_module_function(mRglpk, "glp_get_rii", _wrap_glp_get_rii, -1);
   rb_define_module_function(mRglpk, "glp_get_sjj", _wrap_glp_get_sjj, -1);
+  rb_define_module_function(mRglpk, "glp_scale_prob", _wrap_glp_scale_prob, -1);
   rb_define_module_function(mRglpk, "glp_unscale_prob", _wrap_glp_unscale_prob, -1);
   rb_define_module_function(mRglpk, "glp_set_row_stat", _wrap_glp_set_row_stat, -1);
   rb_define_module_function(mRglpk, "glp_set_col_stat", _wrap_glp_set_col_stat, -1);
+  rb_define_module_function(mRglpk, "glp_std_basis", _wrap_glp_std_basis, -1);
+  rb_define_module_function(mRglpk, "glp_adv_basis", _wrap_glp_adv_basis, -1);
+  rb_define_module_function(mRglpk, "glp_cpx_basis", _wrap_glp_cpx_basis, -1);
   rb_define_module_function(mRglpk, "glp_simplex", _wrap_glp_simplex, -1);
+  rb_define_module_function(mRglpk, "glp_exact", _wrap_glp_exact, -1);
   rb_define_module_function(mRglpk, "glp_init_smcp", _wrap_glp_init_smcp, -1);
-  rb_define_module_function(mRglpk, "glp_get_row_stat", _wrap_glp_get_row_stat, -1);
-  rb_define_module_function(mRglpk, "glp_get_col_stat", _wrap_glp_get_col_stat, -1);
   rb_define_module_function(mRglpk, "glp_get_status", _wrap_glp_get_status, -1);
   rb_define_module_function(mRglpk, "glp_get_prim_stat", _wrap_glp_get_prim_stat, -1);
   rb_define_module_function(mRglpk, "glp_get_dual_stat", _wrap_glp_get_dual_stat, -1);
   rb_define_module_function(mRglpk, "glp_get_obj_val", _wrap_glp_get_obj_val, -1);
+  rb_define_module_function(mRglpk, "glp_get_row_stat", _wrap_glp_get_row_stat, -1);
   rb_define_module_function(mRglpk, "glp_get_row_prim", _wrap_glp_get_row_prim, -1);
   rb_define_module_function(mRglpk, "glp_get_row_dual", _wrap_glp_get_row_dual, -1);
+  rb_define_module_function(mRglpk, "glp_get_col_stat", _wrap_glp_get_col_stat, -1);
   rb_define_module_function(mRglpk, "glp_get_col_prim", _wrap_glp_get_col_prim, -1);
   rb_define_module_function(mRglpk, "glp_get_col_dual", _wrap_glp_get_col_dual, -1);
+  rb_define_module_function(mRglpk, "glp_get_unbnd_ray", _wrap_glp_get_unbnd_ray, -1);
+  rb_define_module_function(mRglpk, "glp_interior", _wrap_glp_interior, -1);
   rb_define_module_function(mRglpk, "glp_ipt_status", _wrap_glp_ipt_status, -1);
   rb_define_module_function(mRglpk, "glp_ipt_obj_val", _wrap_glp_ipt_obj_val, -1);
   rb_define_module_function(mRglpk, "glp_ipt_row_prim", _wrap_glp_ipt_row_prim, -1);
@@ -12159,10 +15834,18 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_module_function(mRglpk, "glp_get_col_kind", _wrap_glp_get_col_kind, -1);
   rb_define_module_function(mRglpk, "glp_get_num_int", _wrap_glp_get_num_int, -1);
   rb_define_module_function(mRglpk, "glp_get_num_bin", _wrap_glp_get_num_bin, -1);
+  rb_define_module_function(mRglpk, "glp_intopt", _wrap_glp_intopt, -1);
+  rb_define_module_function(mRglpk, "glp_init_iocp", _wrap_glp_init_iocp, -1);
   rb_define_module_function(mRglpk, "glp_mip_status", _wrap_glp_mip_status, -1);
   rb_define_module_function(mRglpk, "glp_mip_obj_val", _wrap_glp_mip_obj_val, -1);
   rb_define_module_function(mRglpk, "glp_mip_row_val", _wrap_glp_mip_row_val, -1);
   rb_define_module_function(mRglpk, "glp_mip_col_val", _wrap_glp_mip_col_val, -1);
+  rb_define_module_function(mRglpk, "glp_read_sol", _wrap_glp_read_sol, -1);
+  rb_define_module_function(mRglpk, "glp_write_sol", _wrap_glp_write_sol, -1);
+  rb_define_module_function(mRglpk, "glp_read_ipt", _wrap_glp_read_ipt, -1);
+  rb_define_module_function(mRglpk, "glp_write_ipt", _wrap_glp_write_ipt, -1);
+  rb_define_module_function(mRglpk, "glp_read_mip", _wrap_glp_read_mip, -1);
+  rb_define_module_function(mRglpk, "glp_write_mip", _wrap_glp_write_mip, -1);
   rb_define_module_function(mRglpk, "glp_bf_exists", _wrap_glp_bf_exists, -1);
   rb_define_module_function(mRglpk, "glp_factorize", _wrap_glp_factorize, -1);
   rb_define_module_function(mRglpk, "glp_bf_updated", _wrap_glp_bf_updated, -1);
@@ -12173,10 +15856,51 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_module_function(mRglpk, "glp_get_col_bind", _wrap_glp_get_col_bind, -1);
   rb_define_module_function(mRglpk, "glp_ftran", _wrap_glp_ftran, -1);
   rb_define_module_function(mRglpk, "glp_btran", _wrap_glp_btran, -1);
+  rb_define_module_function(mRglpk, "glp_eval_tab_row", _wrap_glp_eval_tab_row, -1);
+  rb_define_module_function(mRglpk, "glp_eval_tab_col", _wrap_glp_eval_tab_col, -1);
+  rb_define_module_function(mRglpk, "glp_ios_reason", _wrap_glp_ios_reason, -1);
+  rb_define_module_function(mRglpk, "glp_ios_get_prob", _wrap_glp_ios_get_prob, -1);
+  rb_define_module_function(mRglpk, "glp_ios_tree_size", _wrap_glp_ios_tree_size, -1);
+  rb_define_module_function(mRglpk, "glp_ios_curr_node", _wrap_glp_ios_curr_node, -1);
+  rb_define_module_function(mRglpk, "glp_ios_next_node", _wrap_glp_ios_next_node, -1);
+  rb_define_module_function(mRglpk, "glp_ios_prev_node", _wrap_glp_ios_prev_node, -1);
+  rb_define_module_function(mRglpk, "glp_ios_up_node", _wrap_glp_ios_up_node, -1);
+  rb_define_module_function(mRglpk, "glp_ios_node_level", _wrap_glp_ios_node_level, -1);
+  rb_define_module_function(mRglpk, "glp_ios_node_bound", _wrap_glp_ios_node_bound, -1);
+  rb_define_module_function(mRglpk, "glp_ios_best_node", _wrap_glp_ios_best_node, -1);
+  rb_define_module_function(mRglpk, "glp_ios_mip_gap", _wrap_glp_ios_mip_gap, -1);
+  rb_define_module_function(mRglpk, "glp_ios_node_data", _wrap_glp_ios_node_data, -1);
+  rb_define_module_function(mRglpk, "glp_ios_row_attr", _wrap_glp_ios_row_attr, -1);
+  rb_define_module_function(mRglpk, "glp_ios_pool_size", _wrap_glp_ios_pool_size, -1);
+  rb_define_module_function(mRglpk, "glp_ios_add_row", _wrap_glp_ios_add_row, -1);
+  rb_define_module_function(mRglpk, "glp_ios_del_row", _wrap_glp_ios_del_row, -1);
+  rb_define_module_function(mRglpk, "glp_ios_clear_pool", _wrap_glp_ios_clear_pool, -1);
+  rb_define_module_function(mRglpk, "glp_ios_can_branch", _wrap_glp_ios_can_branch, -1);
+  rb_define_module_function(mRglpk, "glp_ios_branch_upon", _wrap_glp_ios_branch_upon, -1);
+  rb_define_module_function(mRglpk, "glp_ios_select_node", _wrap_glp_ios_select_node, -1);
+  rb_define_module_function(mRglpk, "glp_ios_heur_sol", _wrap_glp_ios_heur_sol, -1);
+  rb_define_module_function(mRglpk, "glp_ios_terminate", _wrap_glp_ios_terminate, -1);
   rb_define_module_function(mRglpk, "glp_version", _wrap_glp_version, -1);
+  rb_define_module_function(mRglpk, "glp_term_out", _wrap_glp_term_out, -1);
   rb_define_module_function(mRglpk, "glp_term_hook", _wrap_glp_term_hook, -1);
+  rb_define_module_function(mRglpk, "glp_malloc", _wrap_glp_malloc, -1);
+  rb_define_module_function(mRglpk, "glp_calloc", _wrap_glp_calloc, -1);
+  rb_define_module_function(mRglpk, "glp_free", _wrap_glp_free, -1);
   rb_define_module_function(mRglpk, "glp_mem_usage", _wrap_glp_mem_usage, -1);
   rb_define_module_function(mRglpk, "glp_mem_limit", _wrap_glp_mem_limit, -1);
+  rb_define_module_function(mRglpk, "glp_free_env", _wrap_glp_free_env, -1);
+  rb_define_module_function(mRglpk, "glp_read_mps", _wrap_glp_read_mps, -1);
+  rb_define_module_function(mRglpk, "glp_write_mps", _wrap_glp_write_mps, -1);
+  rb_define_module_function(mRglpk, "glp_read_lp", _wrap_glp_read_lp, -1);
+  rb_define_module_function(mRglpk, "glp_write_lp", _wrap_glp_write_lp, -1);
+  rb_define_module_function(mRglpk, "glp_mpl_alloc_wksp", _wrap_glp_mpl_alloc_wksp, -1);
+  rb_define_module_function(mRglpk, "glp_mpl_read_model", _wrap_glp_mpl_read_model, -1);
+  rb_define_module_function(mRglpk, "glp_mpl_read_data", _wrap_glp_mpl_read_data, -1);
+  rb_define_module_function(mRglpk, "glp_mpl_generate", _wrap_glp_mpl_generate, -1);
+  rb_define_module_function(mRglpk, "glp_mpl_build_prob", _wrap_glp_mpl_build_prob, -1);
+  rb_define_module_function(mRglpk, "glp_mpl_postsolve", _wrap_glp_mpl_postsolve, -1);
+  rb_define_module_function(mRglpk, "glp_mpl_free_wksp", _wrap_glp_mpl_free_wksp, -1);
+  rb_define_module_function(mRglpk, "glp_main", _wrap_glp_main, -1);
   rb_define_const(mRglpk, "LPX_LP", SWIG_From_int((int)(100)));
   rb_define_const(mRglpk, "LPX_MIP", SWIG_From_int((int)(101)));
   rb_define_const(mRglpk, "LPX_FR", SWIG_From_int((int)(110)));
@@ -12228,6 +15952,7 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_const(mRglpk, "LPX_E_NOCONV", SWIG_From_int((int)(212)));
   rb_define_const(mRglpk, "LPX_E_NOPFS", SWIG_From_int((int)(213)));
   rb_define_const(mRglpk, "LPX_E_NODFS", SWIG_From_int((int)(214)));
+  rb_define_const(mRglpk, "LPX_E_MIPGAP", SWIG_From_int((int)(215)));
   rb_define_const(mRglpk, "LPX_K_MSGLEV", SWIG_From_int((int)(300)));
   rb_define_const(mRglpk, "LPX_K_SCALE", SWIG_From_int((int)(301)));
   rb_define_const(mRglpk, "LPX_K_DUAL", SWIG_From_int((int)(302)));
@@ -12259,9 +15984,11 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_const(mRglpk, "LPX_K_BINARIZE", SWIG_From_int((int)(328)));
   rb_define_const(mRglpk, "LPX_K_USECUTS", SWIG_From_int((int)(329)));
   rb_define_const(mRglpk, "LPX_K_BFTYPE", SWIG_From_int((int)(330)));
+  rb_define_const(mRglpk, "LPX_K_MIPGAP", SWIG_From_int((int)(331)));
   rb_define_const(mRglpk, "LPX_C_COVER", SWIG_From_int((int)(0x01)));
   rb_define_const(mRglpk, "LPX_C_CLIQUE", SWIG_From_int((int)(0x02)));
   rb_define_const(mRglpk, "LPX_C_GOMORY", SWIG_From_int((int)(0x04)));
+  rb_define_const(mRglpk, "LPX_C_MIR", SWIG_From_int((int)(0x08)));
   rb_define_const(mRglpk, "LPX_C_ALL", SWIG_From_int((int)(0xFF)));
   
   cLPXKKT.klass = rb_define_class_under(mRglpk, "LPXKKT", rb_cObject);
@@ -12363,11 +16090,11 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_module_function(mRglpk, "_glp_lpx_delete_index", _wrap__glp_lpx_delete_index, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_scale_prob", _wrap__glp_lpx_scale_prob, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_unscale_prob", _wrap__glp_lpx_unscale_prob, -1);
+  rb_define_module_function(mRglpk, "_glp_lpx_set_row_stat", _wrap__glp_lpx_set_row_stat, -1);
+  rb_define_module_function(mRglpk, "_glp_lpx_set_col_stat", _wrap__glp_lpx_set_col_stat, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_std_basis", _wrap__glp_lpx_std_basis, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_adv_basis", _wrap__glp_lpx_adv_basis, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_cpx_basis", _wrap__glp_lpx_cpx_basis, -1);
-  rb_define_module_function(mRglpk, "_glp_lpx_set_row_stat", _wrap__glp_lpx_set_row_stat, -1);
-  rb_define_module_function(mRglpk, "_glp_lpx_set_col_stat", _wrap__glp_lpx_set_col_stat, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_simplex", _wrap__glp_lpx_simplex, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_exact", _wrap__glp_lpx_exact, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_get_status", _wrap__glp_lpx_get_status, -1);
@@ -12432,5 +16159,6 @@ SWIGEXPORT void Init_rglpk(void) {
   rb_define_module_function(mRglpk, "_glp_lpx_print_mip", _wrap__glp_lpx_print_mip, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_is_b_avail", _wrap__glp_lpx_is_b_avail, -1);
   rb_define_module_function(mRglpk, "_glp_lpx_write_pb", _wrap__glp_lpx_write_pb, -1);
+  rb_define_module_function(mRglpk, "_glp_lpx_main", _wrap__glp_lpx_main, -1);
 }
 

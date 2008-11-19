@@ -8,7 +8,7 @@ end
 
 begin 
   require 'glpk'
-rescue RuntimeError
+rescue LoadError
 end
 
 hoe = Hoe.new("rglpk",GLPK::VERSION) do |p|
