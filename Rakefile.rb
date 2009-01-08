@@ -27,7 +27,7 @@ hoe = Hoe.new("rglpk",GLPK::VERSION) do |p|
   
   p.spec_extras = {
     :extensions    => ['ext/extconf.rb'],
-    :require_paths => ['test'],
+    :require_paths => ['lib'],
     :has_rdoc      => true,
     :extra_rdoc_files => ["README.txt","History.txt","License.txt"],
     :rdoc_options  => ["--exclude", "test/*", "--main", "README.txt", "--inline-source"]
