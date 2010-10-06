@@ -36,11 +36,13 @@ module Rglpk
       end
     end
     
-    def __push__(rc)
+  protected
+    
+    def push(rc)
       @array << rc
     end
     
-    def __delete_at__(index)
+    def delete_at(index)
       @array.delete_at(index)
     end
   end
@@ -86,14 +88,14 @@ module Rglpk
     def add_rows(n)
       Glpk_wrapper.glp_add_rows(@lp, n)
       s = @rows.size
-      n.times{|i| @rows.__push__ Row.new(self, s + i + 1)}
+      n.times{|i| @rows.send(:push, Row.new(self, s + i + 1))}
       @rows
     end
     
     def add_cols(n)
       Glpk_wrapper.glp_add_cols(@lp, n)
       s = @cols.size
-      n.times{|i| @cols.__push__ Column.new(self, s + i + 1)}
+      n.times{|i| @cols.send(:push, Column.new(self, s + i + 1))}
       @cols
     end
         
@@ -107,7 +109,7 @@ module Rglpk
       Glpk_wrapper.glp_del_rows(@lp, a.size, r)
 
       a.each do |n|
-        @rows.__delete_at__(n)
+        @rows.send(:delete_at, n)
         a.each_with_index do |nn, i|
           a[i] -= 1
         end
@@ -125,7 +127,7 @@ module Rglpk
       Glpk_wrapper.glp_del_cols(@lp, a.size, r)
 
       a.each do |n|
-        @cols.__delete_at__(n)
+        @cols.send(:delete_at, n)
         a.each_with_index do |nn, i|
           a[i] -= 1
         end
