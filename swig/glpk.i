@@ -34,6 +34,7 @@
 %array_functions(int, intArray)
 %array_functions(double, doubleArray)
 
+%ignore glp_vprintf;
 %include "glpk.h"
 
 
