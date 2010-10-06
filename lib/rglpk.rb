@@ -1,6 +1,6 @@
 require 'glpk_wrapper'
 
-module GLPK
+module Rglpk
 
   Glpk_wrapper.constants.each do |c|
     v = Glpk_wrapper.const_get(c)
@@ -39,7 +39,7 @@ module GLPK
       end
     end   
     def []=(i,n)
-      raise ArgumentError unless n.is_a?(GLPK::Row)
+      raise ArgumentError unless n.is_a?(Row)
       super
     end
   end
@@ -57,7 +57,7 @@ module GLPK
       end
     end   
     def []=(i,n)
-      raise ArgumentError unless n.is_a?(GLPK::Col)
+      raise ArgumentError unless n.is_a?(Col)
       super
     end
   end
@@ -68,9 +68,9 @@ module GLPK
 
     def initialize
       @lp = Glpk_wrapper.glp_create_prob
-      @obj = GLPK::ObjectiveFunction.new(self)
-      @rows = GLPK::RowArray.new
-      @cols = GLPK::ColArray.new
+      @obj = ObjectiveFunction.new(self)
+      @rows = RowArray.new
+      @cols = ColArray.new
       Glpk_wrapper.glp_create_index(@lp)
       @status = nil
     end
@@ -89,13 +89,13 @@ module GLPK
     def add_rows(n)
       Glpk_wrapper.glp_add_rows(@lp,n)
       s = @rows.size
-      n.times{|i| @rows << GLPK::Row.new(self,s+i+1)}
+      n.times{|i| @rows << Row.new(self,s+i+1)}
       @rows
     end
     def add_cols(n)
       Glpk_wrapper.glp_add_cols(@lp,n)
       s = @cols.size
-      n.times{|i| @cols << GLPK::Column.new(self,s+i+1)}
+      n.times{|i| @cols << Column.new(self,s+i+1)}
       @cols
     end      
         
@@ -163,7 +163,7 @@ module GLPK
       Glpk_wrapper.glp_init_smcp(parm)
 
       #Default to errors only temrinal output
-      parm.msg_lev = GLPK::GLP_MSG_ERR
+      parm.msg_lev = GLP_MSG_ERR
 
       #set options
       options.each do |k,v|
@@ -196,7 +196,7 @@ module GLPK
       Glpk_wrapper.glp_get_row_name(@p.lp,@i)
     end
     def set_bounds(type,lb,ub)
-      raise ArgumentError unless GLPK::TypeConstants.include?(type)
+      raise ArgumentError unless TypeConstants.include?(type)
       lb = 0.0 if lb.nil?
       ub = 0.0 if ub.nil?
       Glpk_wrapper.glp_set_row_bnds(@p.lp,@i,type,lb.to_f,ub.to_f)
@@ -206,8 +206,8 @@ module GLPK
       lb = Glpk_wrapper.glp_get_row_lb(@p.lp,@i)
       ub = Glpk_wrapper.glp_get_row_ub(@p.lp,@i)
 
-      lb = (t == GLPK::GLP_FR or t == GLPK::GLP_UP) ? nil : lb
-      ub = (t == GLPK::GLP_FR or t == GLPK::GLP_LO) ? nil : ub      
+      lb = (t == GLP_FR or t == GLP_UP) ? nil : lb
+      ub = (t == GLP_FR or t == GLP_LO) ? nil : ub      
       
       [t,lb,ub]
     end
@@ -247,7 +247,7 @@ module GLPK
       Glpk_wrapper.glp_get_col_name(@p.lp,@j)
     end
     def set_bounds(type,lb,ub)
-      raise ArgumentError unless GLPK::TypeConstants.include?(type)
+      raise ArgumentError unless TypeConstants.include?(type)
       lb = 0.0 if lb.nil?
       ub = 0.0 if ub.nil?
       Glpk_wrapper.glp_set_col_bnds(@p.lp,@j,type,lb,ub)
@@ -257,8 +257,8 @@ module GLPK
       lb = Glpk_wrapper.glp_get_col_lb(@p.lp,@j)
       ub = Glpk_wrapper.glp_get_col_ub(@p.lp,@j)
 
-      lb = (t == GLPK::GLP_FR or t == GLPK::GLP_UP) ? nil : lb
-      ub = (t == GLPK::GLP_FR or t == GLPK::GLP_LO) ? nil : ub      
+      lb = (t == GLP_FR or t == GLP_UP) ? nil : lb
+      ub = (t == GLP_FR or t == GLP_LO) ? nil : ub      
       
       [t,lb,ub]
     end
@@ -297,7 +297,7 @@ module GLPK
       Glpk_wrapper.glp_get_obj_name(@p.lp)
     end
     def dir=(d)
-      raise ArgumentError if d != GLPK::GLP_MIN and d != GLPK::GLP_MAX
+      raise ArgumentError if d != GLP_MIN and d != GLP_MAX
       Glpk_wrapper.glp_set_obj_dir(@p.lp,d)
     end
     def dir
