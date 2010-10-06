@@ -101,7 +101,6 @@ module Rglpk
         
     def del_rows(a)
       # Ensure the array of rows to delete is sorted and unique.
-      #!! why sorted?
       a = a.sort.uniq
 
       r = Glpk_wrapper.new_intArray(a.size + 1)
