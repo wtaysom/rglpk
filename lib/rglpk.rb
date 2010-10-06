@@ -142,7 +142,6 @@ module Rglpk
     end
 
     def set_matrix(v)
-      nr = Glpk_wrapper.glp_get_num_rows(@lp)
       nc = Glpk_wrapper.glp_get_num_cols(@lp)
       
       ia = Glpk_wrapper.new_intArray(v.size + 1)
@@ -150,25 +149,20 @@ module Rglpk
       ar = Glpk_wrapper.new_doubleArray(v.size + 1)
       
       v.each_with_index do |x, y|
-        rn = (y + nr) / nc
+        rn = (y + nc) / nc
         cn = (y % nc) + 1
 
-        Glpk_wrapper.intArray_setitem(ia, y + 1, rn) # 1, 1, 2, 2
-        Glpk_wrapper.intArray_setitem(ja, y + 1, cn) # 1, 2, 1, 2
+        Glpk_wrapper.intArray_setitem(ia, y + 1, rn)
+        Glpk_wrapper.intArray_setitem(ja, y + 1, cn)
         Glpk_wrapper.doubleArray_setitem(ar, y + 1, x)
       end
       
       Glpk_wrapper.glp_load_matrix(@lp, v.size, ia, ja, ar)
     end
-
-    def simplex(options)
-      parm = Glpk_wrapper::Glp_smcp.new
-      Glpk_wrapper.glp_init_smcp(parm)
-
-      # Default to errors only temrinal output.
-      parm.msg_lev = GLP_MSG_ERR
-
-      # Set Options
+    
+  private
+  
+    def apply_options_to_parm(options, parm)
       options.each do |k, v|
         begin
           parm.send("#{k}=".to_sym, v)
@@ -176,8 +170,30 @@ module Rglpk
           raise ArgumentError, "Unrecognised option: #{k}"
         end
       end
+    end
+  
+  public
 
+    def simplex(options)
+      parm = Glpk_wrapper::Glp_smcp.new
+      Glpk_wrapper.glp_init_smcp(parm)
+
+      # Default to errors only temrinal output.
+      parm.msg_lev = GLP_MSG_ERR
+      
+      apply_options_to_parm(options, parm)
       Glpk_wrapper.glp_simplex(@lp, parm)
+    end
+    
+    def mip(options)
+      parm = Glpk_wrapper::Glp_iocp.new
+      Glpk_wrapper.glp_init_iocp(parm)
+      
+      # Default to errors only temrinal output.
+      parm.msg_lev = GLP_MSG_ERR
+      
+      apply_options_to_parm(options, parm)
+      Glpk_wrapper.glp_intopt(@lp, parm)
     end
 
     def status
@@ -261,6 +277,14 @@ module Rglpk
       Glpk_wrapper.glp_get_col_name(@p.lp, @j)
     end
     
+    def kind=(kind)
+      Glpk_wrapper.glp_set_col_kind(@p.lp, j, kind)
+    end
+    
+    def kind
+      Glpk_wrapper.glp_get_col_kind(@p.lp, @j)
+    end
+    
     def set_bounds(type, lb, ub)
       raise ArgumentError unless TypeConstants.include?(type)
       lb = 0.0 if lb.nil?
@@ -303,6 +327,14 @@ module Rglpk
       end
       col
     end
+    
+    def get_prim
+      Glpk_wrapper.glp_get_col_prim(@p.lp, @j)
+    end
+    
+    def mip_val
+      Glpk_wrapper.glp_mip_col_val(@p.lp, @j)
+    end
   end
 
   class ObjectiveFunction
@@ -343,6 +375,10 @@ module Rglpk
     
     def get
       Glpk_wrapper.glp_get_obj_val(@p.lp)
+    end
+    
+    def mip
+      Glpk_wrapper.glp_mip_obj_val(@p.lp)
     end
   end
 end
