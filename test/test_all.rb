@@ -1,5 +1,6 @@
 require 'test/unit'
-require 'glpk'
+$LOAD_PATH << './ext'
+require 'lib/glpk'
 
 class TestGLPK < Test::Unit::TestCase
 
