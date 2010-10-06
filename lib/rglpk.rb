@@ -168,7 +168,7 @@ module Rglpk
   
   public
 
-    def simplex(options)
+    def simplex(options = {})
       parm = Glpk_wrapper::Glp_smcp.new
       Glpk_wrapper.glp_init_smcp(parm)
 
@@ -179,7 +179,7 @@ module Rglpk
       Glpk_wrapper.glp_simplex(@lp, parm)
     end
     
-    def mip(options)
+    def mip(options = {})
       parm = Glpk_wrapper::Glp_iocp.new
       Glpk_wrapper.glp_init_iocp(parm)
       

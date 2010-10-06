@@ -17,8 +17,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
     gemspec.name = "rglpk"
-    gemspec.summary = paragraphs_of("README.txt", 1)[0]
-    gemspec.description = paragraphs_of("README.txt", 1..3)[0]
+    gemspec.summary = paragraphs_of("README.md", 1)[0]
+    gemspec.description = paragraphs_of("README.md", 1..3)[0]
     gemspec.homepage = "http://rglpk.rubyforge.org/"
     
     gemspec.authors = ["Alex Gutteridge", "William Taysom"]
