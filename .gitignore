@@ -1,2 +1,17 @@
 pkg
 *.swp
+
+# SWIG Files
+swig/Makefile
+swig/autom4te.cache/
+swig/config.log
+swig/config.status
+swig/configure
+swig/rglpk.c
+
+# ext Files
+ext/Makefile
+ext/conftest.dSYM/
+ext/mkmf.log
+ext/rglpk.bundle
+ext/rglpk.o

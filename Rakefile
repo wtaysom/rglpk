@@ -1,6 +1,16 @@
+require 'rake/clean'
+
 # Copied from hoe.
 def paragraphs_of(path, *paragraphs)
   File.read(path).split(/\n\n+/).values_at(*paragraphs)
+end
+
+def in_dir(path)
+  original_dir = Dir.pwd
+  Dir.chdir(path)
+  yield
+ensure
+  Dir.chdir(original_dir)
 end
 
 begin
@@ -30,11 +40,27 @@ desc "Use extconf.rb and make to build the extension."
 task :build_extension => EXTENSION
 
 file EXTENSION => 'ext/rglpk.c' do
-  Dir.chdir('ext')
-  system("ruby extconf.rb")
-  system("make")
-  Dir.chdir('..')
+  in_dir('ext') do
+    system("ruby extconf.rb")
+    system("make")
+  end
 end
+
+CLEAN.include('ext/Makefile', 'ext/conftest.dSYM', 'ext/mkmf.log', 
+  'ext/rglpk.bundle', 'ext/rglpk.o')
+
+file 'ext/rglpk.c' => 'swig/glpk.i' do
+  in_dir('swig') do
+    system("autoconf")
+    system("configure")
+    system("make wrap")
+  end
+end
+
+CLEAN.include('swig/Makefile', 'swig/autom4te.cache', 'swig/config.log',
+  'swig/config.status', 'swig/configure', 'swig/rglpk.c')
+
+CLOBBER.include('ext/rglpk.c')
 
 desc "Run Test::Unit tests."
 task :test => :build_extension do
