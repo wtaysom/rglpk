@@ -9,4 +9,4 @@ unless have_header("glpk.h")
   exit 1
 end
   
-create_makefile("rglpk")
+create_makefile('glpk_wrapper')

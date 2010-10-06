@@ -13,5 +13,5 @@ swig/rglpk.c
 ext/Makefile
 ext/conftest.dSYM/
 ext/mkmf.log
-ext/rglpk.bundle
-ext/rglpk.o
+ext/glpk_wrapper.bundle
+ext/glpk_wrapper.o

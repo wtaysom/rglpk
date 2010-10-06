@@ -34,12 +34,13 @@ end
 
 
 SHARED_LIBRARY_EXTENSION = RUBY_PLATFORM.include?("darwin") ? 'bundle' : 'so'
-EXTENSION = 'ext/rglpk.'+SHARED_LIBRARY_EXTENSION
+EXTENSION = 'ext/glpk_wrapper.'+SHARED_LIBRARY_EXTENSION
 
 desc "Use extconf.rb and make to build the extension."
 task :build_extension => EXTENSION
 
-file EXTENSION => 'ext/rglpk.c' do
+file EXTENSION => 'ext/glpk_wrapper.c' do
+  puts "why am I here?"
   in_dir('ext') do
     system("ruby extconf.rb")
     system("make")
@@ -47,9 +48,9 @@ file EXTENSION => 'ext/rglpk.c' do
 end
 
 CLEAN.include('ext/Makefile', 'ext/conftest.dSYM', 'ext/mkmf.log', 
-  'ext/rglpk.bundle', 'ext/rglpk.o')
+  'ext/glpk_wrapper.bundle', 'ext/glpk_wrapper.o')
 
-file 'ext/rglpk.c' => 'swig/glpk.i' do
+file 'ext/glpk_wrapper.c' => 'swig/glpk.i' do
   in_dir('swig') do
     system("autoconf")
     system("configure")
@@ -58,9 +59,9 @@ file 'ext/rglpk.c' => 'swig/glpk.i' do
 end
 
 CLEAN.include('swig/Makefile', 'swig/autom4te.cache', 'swig/config.log',
-  'swig/config.status', 'swig/configure', 'swig/rglpk.c')
+  'swig/config.status', 'swig/configure', 'swig/glpk_wrapper.c')
 
-CLOBBER.include('ext/rglpk.c')
+CLOBBER.include('ext/glpk_wrapper.c')
 
 desc "Run Test::Unit tests."
 task :test => :build_extension do

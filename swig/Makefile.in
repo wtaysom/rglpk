@@ -1,4 +1,4 @@
-rglpk.c: glpk.i
+glpk_wrapper.c: glpk.i
 	@SWIG@ -I/usr/local/include -ruby -w801 -o $@ $?
-wrap: rglpk.c
+wrap: glpk_wrapper.c
 	cp $? ../ext/$?
