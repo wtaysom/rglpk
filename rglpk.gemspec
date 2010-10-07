@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rglpk}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alex Gutteridge", "William Taysom"]
@@ -18,11 +18,12 @@ All bug reports, feature requests and patches are welcome. Please email alexg (a
   s.email = ["alexg@kuicr.kyoto-u.ac.jp", "wtaysom@gmail.com"]
   s.extensions = ["ext/extconf.rb", "ext/extconf.rb"]
   s.extra_rdoc_files = [
-    "README.md"
+    "ChangeLog.md",
+     "README.md"
   ]
   s.files = [
     ".gitignore",
-     "History.txt",
+     "ChangeLog.md",
      "License.txt",
      "README.md",
      "Rakefile",
