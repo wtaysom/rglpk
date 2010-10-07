@@ -61,7 +61,7 @@ end
 CLEAN.include('swig/Makefile', 'swig/autom4te.cache', 'swig/config.log',
   'swig/config.status', 'swig/configure', 'swig/glpk_wrapper.c')
 
-CLOBBER.include('ext/glpk_wrapper.c')
+CLOBBER.include('ext/glpk_wrapper.c', 'rglpk.gemspec')
 
 desc "Run Test::Unit tests."
 task :test => :build_extension do
