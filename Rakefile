@@ -1,8 +1,8 @@
 require 'rake/clean'
 
-# Copied from hoe.
+# Adapted from Hoe.
 def paragraphs_of(path, *paragraphs)
-  File.read(path).split(/\n\n+/).values_at(*paragraphs)
+  File.read(path).split(/\n\n+/).values_at(*paragraphs).join("\n\n")
 end
 
 def in_dir(path)
@@ -17,8 +17,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
     gemspec.name = "rglpk"
-    gemspec.summary = paragraphs_of("README.md", 1)[0]
-    gemspec.description = paragraphs_of("README.md", 1..3)[0]
+    gemspec.summary = paragraphs_of("README.md", 1)
+    gemspec.description = paragraphs_of("README.md", 1..3)
     gemspec.homepage = "http://rglpk.rubyforge.org/"
     
     gemspec.authors = ["Alex Gutteridge", "William Taysom"]
