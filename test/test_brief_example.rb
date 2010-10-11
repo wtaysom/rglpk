@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__))+'/helper'
+require File.expand_path('helper', File.dirname(__FILE__))
 
 class TestExample < Test::Unit::TestCase
   def test_example
