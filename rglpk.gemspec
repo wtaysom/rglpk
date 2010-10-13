@@ -44,6 +44,7 @@ All bug reports, feature requests and patches are welcome. Please email alexg (a
   s.homepage = %q{http://rglpk.rubyforge.org/}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib", "ext", "ext"]
+  s.rubyforge_project = %q{rglpk}
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Rglpk is a package providing a Ruby wrapper to the [GNU GLPK](http://www.gnu.org/software/glpk/) library. The GLPK (GNU Linear Programming Kit) package is intended for solving large-scale linear programming (LP), mixed integer programming (MIP), and other related problems.}
   s.test_files = [
