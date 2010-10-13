@@ -1,3 +1,7 @@
+# rglpk 0.2.1 2010-10-13
+
+* Point readers to gethub in README.
+
 # rglpk 0.2.0 2010-10-07
 
 * Wrap glpk-4.44 using swig-2.0.0.
