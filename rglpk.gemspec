@@ -9,10 +9,10 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alex Gutteridge", "William Taysom"]
-  s.date = %q{2010-10-07}
+  s.date = %q{2010-10-13}
   s.description = %q{Rglpk is a package providing a Ruby wrapper to the [GNU GLPK](http://www.gnu.org/software/glpk/) library. The GLPK (GNU Linear Programming Kit) package is intended for solving large-scale linear programming (LP), mixed integer programming (MIP), and other related problems.
 
-Rglpk is currently in alpha status and the API should be considered subject to change.  Rglpk uses [Swig](http://www.swig.org/) to initially wrap the C GLPK library (using a Swig wrapper originally developed by Nigel Galloway) and then a pure Ruby library to wrap the Swig code in a more friendly OO-style.
+Rglpk (pronounced as "wriggle-pick") is currently in alpha status and the API should be considered subject to change.  Rglpk uses [Swig](http://www.swig.org/) to initially wrap the C GLPK library (using a Swig wrapper originally developed by Nigel Galloway) and then a pure Ruby library to wrap the Swig code in a more friendly OO-style.
 
 All bug reports, feature requests and patches are welcome. Please email alexg (at) kuicr.kyoto-u.ac.jp or use the [rubyforge forums](http://rubyforge.org/forum/?group_id=3943).}
   s.email = ["alexg@kuicr.kyoto-u.ac.jp", "wtaysom@gmail.com"]
