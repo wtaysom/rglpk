@@ -1,10 +1,10 @@
 # Introduction
 
-Rglpk is a package providing a Ruby wrapper to the [GNU GLPK](http://www.gnu.org/software/glpk/) library. The GLPK (GNU Linear Programming Kit) package is intended for solving large-scale linear programming (LP), mixed integer programming (MIP), and other related problems.
+Rglpk is a package providing a Ruby wrapper to the [GNU GLPK](http://www.gnu.org/software/glpk/) library.  The GLPK (GNU Linear Programming Kit) package is intended for solving large-scale linear programming (LP), mixed integer programming (MIP), and other related problems.
 
 Rglpk (pronounced as "wriggle-pick") is currently in alpha status and the API should be considered subject to change.  Rglpk uses [Swig](http://www.swig.org/) to initially wrap the C GLPK library (using a Swig wrapper originally developed by Nigel Galloway) and then a pure Ruby library to wrap the Swig code in a more friendly OO-style.
 
-All bug reports, feature requests and patches are welcome. Please email alexg (at) kuicr.kyoto-u.ac.jp or use the [rubyforge forums](http://rubyforge.org/forum/?group_id=3943).
+See [github](http://github.com/wtaysom/rglpk) for installation instructions.  All bug reports, feature requests and patches are welcome.  Enjoy!
 
 # Installation
 
@@ -25,7 +25,7 @@ The underlying C library is wrapped using Swig.  We keep an up-to-date copy of t
 
 # Documentation
 
-Rglpk provides two primary files: ext/glpk_wrapper.c which is a Swig generated wrapper and lib/rglpk.rb which provide a nicer OO-orientated interface. You should only ever need to call methods of the Rglpk class defined lib/rglpk.rb.
+Rglpk provides two primary files: ext/glpk_wrapper.c which is a Swig generated wrapper and lib/rglpk.rb which provide a nicer OO-orientated interface.  You should only ever need to call methods of the Rglpk class defined lib/rglpk.rb.
 
 An example:
 
