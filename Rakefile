@@ -27,6 +27,7 @@ begin
     
     gemspec.extensions << 'ext/extconf.rb'
     gemspec.require_paths << 'ext'
+    gemspec.rdoc_options << "--exclude" << "."
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
