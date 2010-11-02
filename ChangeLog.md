@@ -1,3 +1,7 @@
+# rglpk 0.2.3 2010-11-03
+
+* Allow range access of rows and columns.
+
 # rglpk 0.2.2 2010-10-25
 
 * Exclude RDoc generation since we don't yet have any.
