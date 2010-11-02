@@ -24,15 +24,13 @@ module Rglpk
     end
     
     def [](i)
-      if i.kind_of?(Numeric)
-        @array[i]
-      elsif i.kind_of?(String)
-        raise RuntimeError if self[1].nil?
+      if i.kind_of?(String)
+        raise RuntimeError, "no rows" if self[1].nil?
         idx = Glpk_wrapper.send(glp_find_method, self[1].p.lp, i)
-        raise ArgumentError if idx == 0
+        raise ArgumentError, "no row with name #{i.inspect}" if idx == 0
         @array[idx - 1]
       else
-        raise ArgumentError
+       @array[i]
       end
     end
     

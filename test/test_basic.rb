@@ -151,6 +151,12 @@ class TestRglpk < Test::Unit::TestCase
     p.rows[0].name = 'test'
     assert_equal [1, 2], p.rows['test'].get
   end
+  
+  def test_get_row_range
+    p = Rglpk::Problem.new
+    p.add_rows(5)
+    assert_equal 2, p.rows[3..-1].size
+  end
 
   def test_col_get_by_name
     p = Rglpk::Problem.new
