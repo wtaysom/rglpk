@@ -1,3 +1,7 @@
+# rglpk 0.2.4 2010-11-04
+
+* Add Rglpk#mip_status.
+
 # rglpk 0.2.3 2010-11-03
 
 * Allow range access of rows and columns.

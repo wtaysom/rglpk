@@ -30,13 +30,17 @@ module TestProblemKind
   def verify_results(*results)
     if column_kind == Rglpk::GLP_CV
       solution_method = :simplex
+      status_method = :status
       value_method = :get_prim
     else
       solution_method = :mip
+      status_method = :mip_status
       value_method = :mip_val
     end
     
     @p.send(solution_method, {:presolve => Rglpk::GLP_ON})
+    
+    assert_equal Rglpk::GLP_OPT, @p.send(status_method)
     
     @p.cols.each_with_index do |col, index|
       assert_equal results[index], col.send(value_method)

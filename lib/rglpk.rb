@@ -68,7 +68,6 @@ module Rglpk
       @rows = RowArray.new
       @cols = ColArray.new
       Glpk_wrapper.glp_create_index(@lp)
-      @status = nil
     end
     
     def name=(n)
@@ -177,6 +176,10 @@ module Rglpk
       Glpk_wrapper.glp_simplex(@lp, parm)
     end
     
+    def status
+      Glpk_wrapper.glp_get_status(@lp)
+    end
+    
     def mip(options = {})
       parm = Glpk_wrapper::Glp_iocp.new
       Glpk_wrapper.glp_init_iocp(parm)
@@ -187,9 +190,9 @@ module Rglpk
       apply_options_to_parm(options, parm)
       Glpk_wrapper.glp_intopt(@lp, parm)
     end
-
-    def status
-      Glpk_wrapper.glp_get_status(@lp)
+    
+    def mip_status
+      Glpk_wrapper.glp_mip_status(@lp)
     end
   end
         
