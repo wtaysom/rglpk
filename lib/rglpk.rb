@@ -211,7 +211,7 @@ module Rglpk
     def name
       Glpk_wrapper.glp_get_row_name(@p.lp, @i)
     end
-    
+        
     def set_bounds(type, lb, ub)
       raise ArgumentError unless TypeConstants.include?(type)
       lb = 0.0 if lb.nil?
@@ -254,6 +254,19 @@ module Rglpk
       end
       row
     end
+    
+    def get_stat
+      Glpk_wrapper.glp_get_row_stat(@p.lp,@i)
+    end
+    
+    def get_prim
+      Glpk_wrapper.glp_get_row_prim(@p.lp,@i)
+    end
+    
+    def get_dual
+      Glpk_wrapper.glp_get_row_dual(@p.lp,@i)
+    end
+    
   end
   
   class Column

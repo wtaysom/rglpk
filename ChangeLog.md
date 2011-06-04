@@ -1,3 +1,5 @@
+* Add Row#get_stat, Row#get_prim Row#get_dual
+
 # rglpk 0.2.4 2010-11-04
 
 * Add Rglpk#mip_status.
