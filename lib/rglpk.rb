@@ -194,6 +194,13 @@ module Rglpk
     def mip_status
       Glpk_wrapper.glp_mip_status(@lp)
     end
+    
+    
+    def write_lp(filename)
+      Glpk_wrapper.glp_write_lp(@lp,nil,filename)
+    end
+    
+    
   end
         
   class Row
