@@ -81,12 +81,26 @@ module Rglpk
     def nz
       Glpk_wrapper.glp_get_num_nz(@lp)
     end
-
+    
+    def add_row
+      Glpk_wrapper.glp_add_rows(@lp, 1)
+      new_row =  Row.new(self, @rows.size + 1)
+      @rows.send(:push,new_row)
+      new_row
+    end
+    
     def add_rows(n)
       Glpk_wrapper.glp_add_rows(@lp, n)
       s = @rows.size
       n.times{|i| @rows.send(:push, Row.new(self, s + i + 1))}
       @rows
+    end
+
+    def add_col
+      Glpk_wrapper.glp_add_cols(@lp, 1)
+      new_column =  Column.new(self, @cols.size + 1)
+      @cols.send(:push,new_column)
+      new_column
     end
     
     def add_cols(n)
