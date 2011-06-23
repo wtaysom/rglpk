@@ -1,3 +1,5 @@
+* Add Row#get_stat, Row#get_prim Row#get_dual
+
 # rglpk 0.2.4 2010-11-04
 
 * Add Rglpk#mip_status.
@@ -12,7 +14,7 @@
 
 # rglpk 0.2.1 2010-10-13
 
-* Point readers to gethub in README.
+* Point readers to github in README.
 
 # rglpk 0.2.0 2010-10-07
 
