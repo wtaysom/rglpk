@@ -29,7 +29,7 @@ Rglpk provides two primary files: ext/glpk_wrapper.c which is a Swig generated w
 
 An example:
 
-  	# The same Brief Example as found in section 1.3 of 
+	# The same Brief Example as found in section 1.3 of 
 	# glpk-4.44/doc/glpk.pdf.
 	#
 	# maximize
@@ -79,6 +79,16 @@ An example:
 
 	printf("z = %g; x1 = %g; x2 = %g; x3 = %g\n", z, x1, x2, x3)
 	#=> z = 733.333; x1 = 33.3333; x2 = 66.6667; x3 = 0
+
+# Testing
+
+Test everything with:
+
+	> rake test
+
+Test a specific test with:
+
+	> ruby test/test_brief_example.rb # or what have you.
 
 # License
 
