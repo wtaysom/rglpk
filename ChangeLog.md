@@ -1,4 +1,7 @@
-* Add Row#get_stat, Row#get_prim Row#get_dual
+# rglpk 0.2.5 2011-06-23
+
+* Add Row#get_stat, Row#get_prim Row#get_dual.
+* Update tests to work with Ruby 1.9.2.
 
 # rglpk 0.2.4 2010-11-04
 
