@@ -55,8 +55,8 @@ class TestExample < Test::Unit::TestCase
     assert_equal Rglpk::GLP_NU, rows[0].get_stat
     assert_equal 100, rows[0].get_prim
     assert_equal 3.333333333333333, rows[0].get_dual
-    `rm test.lp`
+    File.delete("test.lp") rescue Errno::ENOENT
     p.write_lp("test.lp")
-    assert File.exists?('test.lp')
+    assert File.exists?("test.lp")    
   end
 end

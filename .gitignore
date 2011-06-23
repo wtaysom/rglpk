@@ -15,3 +15,6 @@ ext/conftest.dSYM/
 ext/mkmf.log
 ext/glpk_wrapper.bundle
 ext/glpk_wrapper.o
+
+# Test Files
+test.lp

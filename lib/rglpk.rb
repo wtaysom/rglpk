@@ -84,8 +84,8 @@ module Rglpk
     
     def add_row
       Glpk_wrapper.glp_add_rows(@lp, 1)
-      new_row =  Row.new(self, @rows.size + 1)
-      @rows.send(:push,new_row)
+      new_row = Row.new(self, @rows.size + 1)
+      @rows.send(:push, new_row)
       new_row
     end
     
@@ -98,8 +98,8 @@ module Rglpk
 
     def add_col
       Glpk_wrapper.glp_add_cols(@lp, 1)
-      new_column =  Column.new(self, @cols.size + 1)
-      @cols.send(:push,new_column)
+      new_column = Column.new(self, @cols.size + 1)
+      @cols.send(:push, new_column)
       new_column
     end
     
@@ -129,7 +129,7 @@ module Rglpk
     end
 
     def del_cols(a)
-      # Ensure the array of rows tro delete is sorted and unique.
+      # Ensure the array of rows to delete is sorted and unique.
       a = a.sort.uniq
 
       r = Glpk_wrapper.new_intArray(a.size + 1)
@@ -211,7 +211,7 @@ module Rglpk
     
     
     def write_lp(filename)
-      Glpk_wrapper.glp_write_lp(@lp,nil,filename)
+      Glpk_wrapper.glp_write_lp(@lp, nil, filename)
     end
     
     
@@ -277,17 +277,16 @@ module Rglpk
     end
     
     def get_stat
-      Glpk_wrapper.glp_get_row_stat(@p.lp,@i)
+      Glpk_wrapper.glp_get_row_stat(@p.lp, @i)
     end
     
     def get_prim
-      Glpk_wrapper.glp_get_row_prim(@p.lp,@i)
+      Glpk_wrapper.glp_get_row_prim(@p.lp, @i)
     end
     
     def get_dual
-      Glpk_wrapper.glp_get_row_dual(@p.lp,@i)
+      Glpk_wrapper.glp_get_row_dual(@p.lp, @i)
     end
-    
   end
   
   class Column
