@@ -27,12 +27,34 @@ class TestRglpk < Test::Unit::TestCase
     assert_raise(ArgumentError){p.obj.dir = 3}
   end
 
+  def test_add_row
+    p = Rglpk::Problem.new
+    r = p.add_row
+    assert_kind_of Rglpk::Row, r
+    assert_equal 1, r.i
+    assert_equal 1, p.rows.size
+    r = p.add_row
+    assert_equal 2, r.i
+    assert_equal 2, p.rows.size
+  end
+
   def test_add_rows
     p = Rglpk::Problem.new
     p.add_rows(2)
     assert_equal 2, p.rows.size
     p.add_rows(2)
     assert_equal 4, p.rows.size
+  end
+
+  def test_add_column
+    p = Rglpk::Problem.new
+    c = p.add_col
+    assert_kind_of Rglpk::Column, c
+    assert_equal 1, c.j
+    assert_equal 1, p.cols.size
+    c = p.add_col
+    assert_equal 2, c.j
+    assert_equal 2, p.cols.size
   end
 
   def test_add_cols

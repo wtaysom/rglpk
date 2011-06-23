@@ -81,12 +81,26 @@ module Rglpk
     def nz
       Glpk_wrapper.glp_get_num_nz(@lp)
     end
-
+    
+    def add_row
+      Glpk_wrapper.glp_add_rows(@lp, 1)
+      new_row =  Row.new(self, @rows.size + 1)
+      @rows.send(:push,new_row)
+      new_row
+    end
+    
     def add_rows(n)
       Glpk_wrapper.glp_add_rows(@lp, n)
       s = @rows.size
       n.times{|i| @rows.send(:push, Row.new(self, s + i + 1))}
       @rows
+    end
+
+    def add_col
+      Glpk_wrapper.glp_add_cols(@lp, 1)
+      new_column =  Column.new(self, @cols.size + 1)
+      @cols.send(:push,new_column)
+      new_column
     end
     
     def add_cols(n)
@@ -194,6 +208,13 @@ module Rglpk
     def mip_status
       Glpk_wrapper.glp_mip_status(@lp)
     end
+    
+    
+    def write_lp(filename)
+      Glpk_wrapper.glp_write_lp(@lp,nil,filename)
+    end
+    
+    
   end
         
   class Row
@@ -211,7 +232,7 @@ module Rglpk
     def name
       Glpk_wrapper.glp_get_row_name(@p.lp, @i)
     end
-    
+        
     def set_bounds(type, lb, ub)
       raise ArgumentError unless TypeConstants.include?(type)
       lb = 0.0 if lb.nil?
@@ -254,6 +275,19 @@ module Rglpk
       end
       row
     end
+    
+    def get_stat
+      Glpk_wrapper.glp_get_row_stat(@p.lp,@i)
+    end
+    
+    def get_prim
+      Glpk_wrapper.glp_get_row_prim(@p.lp,@i)
+    end
+    
+    def get_dual
+      Glpk_wrapper.glp_get_row_dual(@p.lp,@i)
+    end
+    
   end
   
   class Column
