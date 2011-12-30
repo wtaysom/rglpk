@@ -7,7 +7,7 @@ class TestMemoryProf < Test::Unit::TestCase
         _test_example
       end
       
-      out = `ps aux | grep "ruby test/test_brief_example.rb"`
+      out = `ps aux | grep "ruby test/test_memory_prof.rb"`
       puts out.split("\n")[0]
     end
   end
