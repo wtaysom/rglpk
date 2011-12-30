@@ -70,6 +70,14 @@ module Rglpk
       Glpk_wrapper.glp_create_index(@lp)
     end
     
+    def destroy!
+      Glpk_wrapper.glp_delete_prob(@lp)
+      
+      Glpk_wrapper.delete_intArray(@_ia)
+      Glpk_wrapper.delete_intArray(@_ja)
+      Glpk_wrapper.delete_doubleArray(@_ar)
+    end
+    
     def name=(n)
       Glpk_wrapper.glp_set_prob_name(@lp, n)
     end
@@ -161,6 +169,10 @@ module Rglpk
         Glpk_wrapper.intArray_setitem(ja, y + 1, cn)
         Glpk_wrapper.doubleArray_setitem(ar, y + 1, x)
       end
+      
+      @_ia = ia
+      @_ja = ja
+      @_ar = ar
       
       Glpk_wrapper.glp_load_matrix(@lp, v.size, ia, ja, ar)
     end
