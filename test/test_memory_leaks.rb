@@ -1,6 +1,6 @@
 require File.expand_path('helper', File.dirname(__FILE__))
 
-class TestMemoryProf < Test::Unit::TestCase
+class TestMemoryLeaks < Test::Unit::TestCase
   include Examples
     
   def test_memory_prof
