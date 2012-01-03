@@ -68,14 +68,15 @@ module Rglpk
       @rows = RowArray.new
       @cols = ColArray.new
       Glpk_wrapper.glp_create_index(@lp)
+      
+      ObjectSpace.define_finalizer(self, self.class.finalizer(@lp))
     end
     
-    def destroy!
-      Glpk_wrapper.glp_delete_prob(@lp)
-      
-      Glpk_wrapper.delete_intArray(@_ia)
-      Glpk_wrapper.delete_intArray(@_ja)
-      Glpk_wrapper.delete_doubleArray(@_ar)
+    def self.finalizer(lp)
+      proc do
+        Glpk_wrapper.glp_delete_index(lp)
+        Glpk_wrapper.glp_delete_prob(lp)
+      end
     end
     
     def name=(n)
@@ -125,6 +126,7 @@ module Rglpk
       r = Glpk_wrapper.new_intArray(a.size + 1)
       a.each_with_index{|n, i| Glpk_wrapper.intArray_setitem(r, i + 1, n)}
       Glpk_wrapper.glp_del_rows(@lp, a.size, r)
+      Glpk_wrapper.delete_intArray(r)
 
       a.each do |n|
         @rows.send(:delete_at, n)
@@ -143,6 +145,7 @@ module Rglpk
       r = Glpk_wrapper.new_intArray(a.size + 1)
       a.each_with_index{|n, i| Glpk_wrapper.intArray_setitem(r, i + 1, n)}
       Glpk_wrapper.glp_del_cols(@lp, a.size, r)
+      Glpk_wrapper.delete_intArray(r)
 
       a.each do |n|
         @cols.send(:delete_at, n)
@@ -170,11 +173,11 @@ module Rglpk
         Glpk_wrapper.doubleArray_setitem(ar, y + 1, x)
       end
       
-      @_ia = ia
-      @_ja = ja
-      @_ar = ar
-      
       Glpk_wrapper.glp_load_matrix(@lp, v.size, ia, ja, ar)
+      
+      Glpk_wrapper.delete_intArray(ia)
+      Glpk_wrapper.delete_intArray(ja)
+      Glpk_wrapper.delete_doubleArray(ar)
     end
     
   private
@@ -273,6 +276,9 @@ module Rglpk
         Glpk_wrapper.doubleArray_setitem(val, y + 1, x)}
       
       Glpk_wrapper.glp_set_mat_row(@p.lp, @i, v.size, ind, val)
+      
+      Glpk_wrapper.delete_intArray(ind)
+      Glpk_wrapper.delete_doubleArray(val)
     end
     
     def get
@@ -285,6 +291,8 @@ module Rglpk
         j = Glpk_wrapper.intArray_getitem(ind, i + 1)
         row[j - 1] = v
       end
+      Glpk_wrapper.delete_intArray(ind)
+      Glpk_wrapper.delete_doubleArray(val)
       row
     end
     
@@ -353,6 +361,9 @@ module Rglpk
         Glpk_wrapper.doubleArray_setitem(val, y + 1, x)}
       
       Glpk_wrapper.glp_set_mat_col(@p.lp, @j, v.size, ind, val)
+      
+      Glpk_wrapper.delete_intArray(ind)
+      Glpk_wrapper.delete_doubleArray(val)
     end
     
     def get
@@ -365,6 +376,8 @@ module Rglpk
         j = Glpk_wrapper.intArray_getitem(ind, i + 1)
         col[j - 1] = v
       end
+      Glpk_wrapper.delete_intArray(ind)
+      Glpk_wrapper.delete_doubleArray(val)
       col
     end
     
