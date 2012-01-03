@@ -1,3 +1,7 @@
+# rglpk 0.2.6 2012-01-23
+
+* Fix memory leaks by adding finalizer to free GLPK problems.
+
 # rglpk 0.2.5 2011-06-23
 
 * Add Row#get_stat, Row#get_prim Row#get_dual.
