@@ -101,8 +101,11 @@ module Rglpk
     def add_rows(n)
       Glpk_wrapper.glp_add_rows(@lp, n)
       s = @rows.size
-      n.times{|i| @rows.send(:push, Row.new(self, s + i + 1))}
-      @rows
+      n.times.map do |i|
+        new_row = Row.new(self, s + i + 1)
+        @rows.send(:push, new_row)
+        new_row
+      end
     end
 
     def add_col
@@ -115,8 +118,11 @@ module Rglpk
     def add_cols(n)
       Glpk_wrapper.glp_add_cols(@lp, n)
       s = @cols.size
-      n.times{|i| @cols.send(:push, Column.new(self, s + i + 1))}
-      @cols
+      n.times.map do |i|
+        new_col = Column.new(self, s + i + 1)
+        @cols.send(:push, new_col)
+        new_col
+      end
     end
         
     def del_rows(a)
