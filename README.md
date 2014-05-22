@@ -16,6 +16,7 @@ A working GLPK library installation is required.  Currently, Rglpk is tested wit
 	> make
 	> make check
 	> make install
+	> ldconfig # creates the necessary links and cache to the most recent shared libraries
 
 Rglpk is only available as a gem:
 
