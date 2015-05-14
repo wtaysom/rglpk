@@ -69,3 +69,5 @@ desc "Run Test::Unit tests."
 task :test => :build_extension do
   system("ruby test/test_all.rb")
 end
+
+task :default => [:test]
