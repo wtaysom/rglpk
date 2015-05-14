@@ -48,7 +48,7 @@ module TestProblemKind
   end
 end
 
-class BinaryVariables < Test::Unit::TestCase
+class BinaryVariables < Minitest::Test
   include TestProblemKind
   
   def column_kind
@@ -60,7 +60,7 @@ class BinaryVariables < Test::Unit::TestCase
   end
 end
 
-class IntegerVariables < Test::Unit::TestCase
+class IntegerVariables < Minitest::Test
   include TestProblemKind
   
   def column_kind
@@ -72,7 +72,7 @@ class IntegerVariables < Test::Unit::TestCase
   end
 end
 
-class ContinuousVariables < Test::Unit::TestCase
+class ContinuousVariables < Minitest::Test
   include TestProblemKind
   
   def column_kind

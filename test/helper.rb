@@ -1,6 +1,6 @@
 here = File.expand_path(File.dirname(__FILE__))
 
-require 'test/unit'
+require 'minitest/autorun'
 $LOAD_PATH << './ext'
 require here+'/../lib/rglpk'
 
