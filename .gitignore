@@ -1,5 +1,6 @@
 pkg
 *.swp
+.bundle/
 
 # SWIG Files
 swig/Makefile
@@ -15,6 +16,7 @@ ext/conftest.dSYM/
 ext/mkmf.log
 ext/glpk_wrapper.bundle
 ext/glpk_wrapper.o
+ext/glpk_wrapper.so
 
 # Test Files
 test.lp

@@ -1,6 +1,6 @@
 require File.expand_path('helper', File.dirname(__FILE__))
 
-class TestBriefExample < Test::Unit::TestCase
+class TestBriefExample < Minitest::Test
   include Examples
   
   def test_brief_example

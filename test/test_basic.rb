@@ -1,6 +1,6 @@
 require File.expand_path('helper', File.dirname(__FILE__))
 
-class TestRglpk < Test::Unit::TestCase
+class TestRglpk < Minitest::Test
 
   def test_create
     assert_instance_of Rglpk::Problem, Rglpk::Problem.new
@@ -24,7 +24,7 @@ class TestRglpk < Test::Unit::TestCase
     assert_equal Rglpk::GLP_MIN, p.obj.dir
     p.obj.dir = Rglpk::GLP_MAX
     assert_equal Rglpk::GLP_MAX, p.obj.dir
-    assert_raise(ArgumentError){p.obj.dir = 3}
+    assert_raises(ArgumentError){p.obj.dir = 3}
   end
 
   def test_add_row
@@ -107,7 +107,7 @@ class TestRglpk < Test::Unit::TestCase
   def test_set_row
     p = Rglpk::Problem.new
     p.add_rows(2)
-    assert_raise(RuntimeError){p.rows[1].set([1, 2])}
+    assert_raises(RuntimeError){p.rows[1].set([1, 2])}
     p.add_cols(2)
     p.rows[1].set([1, 2])
     assert_equal [1, 2], p.rows[1].get
@@ -116,7 +116,7 @@ class TestRglpk < Test::Unit::TestCase
   def test_set_col
     p = Rglpk::Problem.new
     p.add_cols(2)
-    assert_raise(RuntimeError){p.cols[1].set([1, 2])}
+    assert_raises(RuntimeError){p.cols[1].set([1, 2])}
     p.add_rows(2)
     p.cols[1].set([1, 2])
     assert_equal [1, 2], p.cols[1].get
