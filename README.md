@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/wtaysom/rglpk.svg)](https://travis-ci.org/wtaysom/rglpk)
+
 # Introduction
 
 Rglpk is a package providing a Ruby wrapper to the [GNU GLPK](http://www.gnu.org/software/glpk/) library.  The GLPK (GNU Linear Programming Kit) package is intended for solving large-scale linear programming (LP), mixed integer programming (MIP), and other related problems.
