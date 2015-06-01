@@ -14,6 +14,7 @@ A working GLPK library installation is required.  Currently, Rglpk is tested wit
 
 	> gzip -d glpk-X.Y.tar.gz
 	> tar -x < glpk-X.Y.tar
+	> cd glpk-X.Y
 	> ./configure
 	> make
 	> make check
