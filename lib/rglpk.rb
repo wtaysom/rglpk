@@ -272,17 +272,22 @@ module Rglpk
       [t, lb, ub]
     end
     
-    def set(v)
-      raise RuntimeError unless v.size == @p.cols.size
+    def set(v, i = nil)
+      raise RuntimeError unless v.size == @p.cols.size or (not i.nil? and i.size == v.size)
       ind = Glpk_wrapper.new_intArray(v.size + 1)
       val = Glpk_wrapper.new_doubleArray(v.size + 1)
       
-      1.upto(v.size){|x| Glpk_wrapper.intArray_setitem(ind, x, x)}
+      if i.nil?
+        i = 1.upto(v.size)
+      end
+
+      i.each_with_index{|x, y|
+        Glpk_wrapper.intArray_setitem(ind, y + 1, x)}
       v.each_with_index{|x, y|
         Glpk_wrapper.doubleArray_setitem(val, y + 1, x)}
-      
+
       Glpk_wrapper.glp_set_mat_row(@p.lp, @i, v.size, ind, val)
-      
+
       Glpk_wrapper.delete_intArray(ind)
       Glpk_wrapper.delete_doubleArray(val)
     end

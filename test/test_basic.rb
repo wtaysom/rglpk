@@ -200,6 +200,18 @@ class TestRglpk < Minitest::Test
     p.simplex({:msg_lev => 1})
   end
 
+  def test_sparse_row
+    p = Rglpk::Problem.new
+    p.add_cols(7)
+    rows = p.add_rows(3)
+    rows[0].set [1], [5]
+    rows[1].set [3, 6], [6, 7]
+    rows[2].set [1, 2, 3], [4, 5, 7]
+    assert_equal [0, 0, 0, 0, 1, 0, 0], rows[0].get
+    assert_equal [0, 0, 0, 0, 0, 3, 6], rows[1].get
+    assert_equal [0, 0, 0, 1, 2, 0, 3], rows[2].get
+  end
+
   class D < Rglpk::Problem
     attr_accessor :species
     def initialize
