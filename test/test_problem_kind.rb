@@ -45,6 +45,10 @@ module TestProblemKind
     @p.cols.each_with_index do |col, index|
       assert_equal results[index], col.send(value_method)
     end
+
+    @p.rows.each do |row|
+      refute_nil row.send(value_method)
+    end
   end
 end
 
