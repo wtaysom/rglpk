@@ -314,7 +314,11 @@ module Rglpk
     def get_prim
       Glpk_wrapper.glp_get_row_prim(@p.lp, @i)
     end
-    
+
+    def mip_val
+      Glpk_wrapper.glp_mip_row_val(@p.lp, @i)
+    end
+
     def get_dual
       Glpk_wrapper.glp_get_row_dual(@p.lp, @i)
     end
